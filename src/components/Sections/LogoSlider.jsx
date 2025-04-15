@@ -1,5 +1,20 @@
 import React from "react";
+import { motion } from "framer-motion";
 import Heading from "@/components/ui/heading";
+
+const fadeInUp = {
+  hidden: { opacity: 0, y: 20 },
+  visible: { opacity: 1, y: 0, transition: { duration: 0.6, ease: "easeOut" } },
+};
+
+const scaleIn = {
+  hidden: { opacity: 0, scale: 0.8 },
+  visible: {
+    opacity: 1,
+    scale: 1,
+    transition: { duration: 0.6, ease: "easeOut" },
+  },
+};
 
 const logos = [
   { src: "/src/assets/placement-logos/zamoto.png", alt: "Zomato" },
@@ -27,11 +42,15 @@ const logos = [
 
 const LogoSlider = ({ className = "" }) => {
   return (
-    <section
+    <motion.section
+      initial="hidden"
+      whileInView="visible"
+      viewport={{ once: true, margin: "-100px" }}
+      variants={fadeInUp}
       className={`w-full py-20 mt-2 bg-gray-200 dark:bg-gray-900 ${className}`}
     >
       <div className="container mx-auto px-4">
-        <div className="text-center mb-16">
+        <motion.div variants={fadeInUp} className="text-center mb-16">
           <Heading size="lg" className="mb-4">
             Some of Our <span className="text-orange-500">Major</span>{" "}
             Recruiters
@@ -39,39 +58,63 @@ const LogoSlider = ({ className = "" }) => {
           <p className="text-lg text-gray-600 dark:text-gray-300">
             We are proud to partner with leading companies across industries
           </p>
-        </div>
+        </motion.div>
 
-        <div className="relative w-full overflow-hidden">
-          <div className="flex animate-marquee">
+        <motion.div
+          variants={scaleIn}
+          className="relative w-full overflow-hidden"
+        >
+          <motion.div
+            className="flex animate-marquee"
+            initial={{ x: 0 }}
+            animate={{ x: "-50%" }}
+            transition={{
+              duration: 20,
+              repeat: Infinity,
+              ease: "linear",
+            }}
+          >
             {logos.map((logo, index) => (
-              <div
+              <motion.div
                 key={`${logo.alt}-${index}`}
+                whileHover={{ scale: 1.1 }}
                 className="flex-shrink-0 mx-4 md:mx-8"
               >
-                <img
+                <motion.img
                   src={logo.src}
                   alt={logo.alt}
-                  className="h-16 md:h-20 w-auto object-contain grayscale hover:grayscale-0 transition-all duration-300"
+                  whileHover={{
+                    scale: 1.1,
+                    filter: "grayscale(0%)",
+                    transition: { duration: 0.3 },
+                  }}
+                  className="h-16 md:h-20 w-auto object-contain grayscale"
                 />
-              </div>
+              </motion.div>
             ))}
             {/* Duplicate logos for seamless loop */}
             {logos.map((logo, index) => (
-              <div
+              <motion.div
                 key={`${logo.alt}-${index}-duplicate`}
+                whileHover={{ scale: 1.1 }}
                 className="flex-shrink-0 mx-4 md:mx-8"
               >
-                <img
+                <motion.img
                   src={logo.src}
                   alt={logo.alt}
-                  className="h-16 md:h-20 w-auto object-contain grayscale hover:grayscale-0 transition-all duration-300"
+                  whileHover={{
+                    scale: 1.1,
+                    filter: "grayscale(0%)",
+                    transition: { duration: 0.3 },
+                  }}
+                  className="h-16 md:h-20 w-auto object-contain grayscale"
                 />
-              </div>
+              </motion.div>
             ))}
-          </div>
-        </div>
+          </motion.div>
+        </motion.div>
       </div>
-    </section>
+    </motion.section>
   );
 };
 

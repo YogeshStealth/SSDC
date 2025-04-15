@@ -1,6 +1,7 @@
 "use client";
 import bgImage from "@/assets/modern-campus.jpg";
 import Heading from "@/components/ui/heading";
+import { motion } from "framer-motion";
 
 import { useState, useEffect } from "react";
 import {
@@ -98,6 +99,57 @@ const features = [
   "100% Placement Assistance",
 ];
 
+const fadeInLeft = {
+  hidden: { opacity: 0, x: -100 },
+  visible: {
+    opacity: 1,
+    x: 0,
+    transition: {
+      duration: 0.8,
+      ease: "easeOut",
+      delay: 0.2,
+    },
+  },
+};
+
+const fadeInRight = {
+  hidden: { opacity: 0, x: 100 },
+  visible: {
+    opacity: 1,
+    x: 0,
+    transition: {
+      duration: 0.8,
+      ease: "easeOut",
+      delay: 0.2,
+    },
+  },
+};
+
+const fadeInUp = {
+  hidden: { opacity: 0, y: 50 },
+  visible: {
+    opacity: 1,
+    y: 0,
+    transition: {
+      duration: 0.8,
+      ease: "easeOut",
+      delay: 0.2,
+    },
+  },
+};
+
+const fadeIn = {
+  hidden: { opacity: 0 },
+  visible: {
+    opacity: 1,
+    transition: {
+      duration: 0.8,
+      ease: "easeOut",
+      delay: 0.2,
+    },
+  },
+};
+
 export default function HeroSection() {
   const [formData, setFormData] = useState({
     name: "",
@@ -160,6 +212,10 @@ export default function HeroSection() {
     else if (name === "email") {
       setFormData((prev) => ({ ...prev, [name]: value }));
     }
+
+    if (errors[name]) {
+      setErrors((prev) => ({ ...prev, [name]: "" }));
+    }
   };
 
   // Handle select changes
@@ -169,6 +225,10 @@ export default function HeroSection() {
       setFormData((prev) => ({ ...prev, stream: value, course: "" }));
     } else {
       setFormData((prev) => ({ ...prev, [name]: value }));
+    }
+
+    if (errors[name]) {
+      setErrors((prev) => ({ ...prev, [name]: "" }));
     }
   };
 
@@ -310,22 +370,38 @@ export default function HeroSection() {
           <div className="lg:col-span-7 space-y-8 text-center lg:text-left">
             <div className="relative">
               <div className="absolute -left-4 top-0 bottom-0 w-1 bg-orange-500 hidden lg:block"></div>
-              <Heading size="xl" className="text-white mb-4" as="h1">
-                Build Your <br />
-                <span className="text-orange-400">Future Today</span>
-              </Heading>
+              <motion.h1
+                initial="hidden"
+                whileInView="visible"
+                viewport={{ once: false, margin: "-100px" }}
+                variants={fadeInLeft}
+                className="text-4xl md:text-5xl lg:text-6xl font-bold text-white mb-6"
+              >
+                Shape Your Future with{" "}
+                <span className="text-orange-400">Quality Education</span>
+              </motion.h1>
             </div>
 
-            <p className="text-lg text-blue-100 max-w-2xl mx-auto lg:mx-0">
-              Join Siva Sivani Degree College and access world-class education
-              with industry-relevant programs in Management, Science, and
-              Commerce.
-            </p>
+            <motion.p
+              initial="hidden"
+              whileInView="visible"
+              viewport={{ once: false, margin: "-100px" }}
+              variants={fadeInLeft}
+              className="text-lg md:text-xl text-gray-200 mb-8"
+            >
+              Join our prestigious institution and embark on a journey of
+              academic excellence and professional growth.
+            </motion.p>
 
             <div className="hidden md:grid md:grid-cols-3 gap-6 pt-4">
-              {programs.map((program) => (
-                <div
+              {programs.map((program, index) => (
+                <motion.div
                   key={program.title}
+                  initial="hidden"
+                  whileInView="visible"
+                  viewport={{ once: false, margin: "-100px" }}
+                  variants={fadeInUp}
+                  transition={{ delay: index * 0.2 }}
                   className="bg-white/10 backdrop-blur-[5px] rounded-xl p-6 border border-white/20 transform transition-all hover:bg-white/20"
                 >
                   <div className="w-12 h-12 bg-orange-500/20 rounded-lg flex items-center justify-center mb-4">
@@ -344,24 +420,44 @@ export default function HeroSection() {
                     Learn more
                     <ChevronRight className="h-4 w-4 ml-1" />
                   </Button>
-                </div>
+                </motion.div>
               ))}
             </div>
 
-            <div className="hidden md:block pt-6">
+            <motion.div
+              initial="hidden"
+              whileInView="visible"
+              viewport={{ once: false, margin: "-100px" }}
+              variants={fadeIn}
+              className="hidden md:block pt-6"
+            >
               <div className="flex flex-col md:flex-row md:items-center space-y-4 md:space-y-0 md:space-x-8">
-                {features.map((feature) => (
-                  <div key={feature} className="flex items-center space-x-2">
+                {features.map((feature, index) => (
+                  <motion.div
+                    key={feature}
+                    initial="hidden"
+                    whileInView="visible"
+                    viewport={{ once: false, margin: "-100px" }}
+                    variants={fadeIn}
+                    transition={{ delay: index * 0.2 }}
+                    className="flex items-center space-x-2"
+                  >
                     <CheckCircle className="h-5 w-5 text-orange-400" />
                     <span className="text-white">{feature}</span>
-                  </div>
+                  </motion.div>
                 ))}
               </div>
-            </div>
+            </motion.div>
           </div>
 
           {/* Right content - 5 columns */}
-          <div className="lg:col-span-5">
+          <motion.div
+            initial="hidden"
+            whileInView="visible"
+            viewport={{ once: false, margin: "-100px" }}
+            variants={fadeInRight}
+            className="lg:col-span-5"
+          >
             <div className="bg-white rounded-2xl shadow-xl overflow-hidden">
               <div className="bg-blue-900 py-6 px-8">
                 <Heading size="md" className="text-white" as="h2">
@@ -557,7 +653,7 @@ export default function HeroSection() {
                 </p>
               </form>
             </div>
-          </div>
+          </motion.div>
         </div>
       </div>
     </div>

@@ -14,6 +14,29 @@ import {
 } from "lucide-react";
 import { cn } from "@/lib/utils";
 import Heading from "@/components/ui/heading";
+import { motion } from "framer-motion";
+
+const fadeInUp = {
+  hidden: { opacity: 0, y: 20 },
+  visible: {
+    opacity: 1,
+    y: 0,
+    transition: {
+      duration: 0.6,
+      ease: "easeOut",
+    },
+  },
+};
+
+const staggerContainer = {
+  hidden: { opacity: 0 },
+  visible: {
+    opacity: 1,
+    transition: {
+      staggerChildren: 0.2,
+    },
+  },
+};
 
 export default function ProgramTabs() {
   const [activeTab, setActiveTab] = useState("management");
@@ -53,31 +76,19 @@ export default function ProgramTabs() {
           title: "Human Resources Management",
           icon: <Users className="h-5 w-5 text-orange-500" />,
           description:
-            "Develop expertise in talent acquisition, employee relations, organizational development, and strategic HR planning. Learn to manage workforce dynamics in modern organizations.",
+            "Develop expertise in talent acquisition, employee relations, organizational development, and strategic HR planning.",
         },
         {
           title: "Finance Management",
           icon: <TrendingUp className="h-5 w-5 text-orange-500" />,
           description:
-            "Master financial analysis, investment strategies, corporate finance, and financial planning. Prepare for careers in banking, investment, and financial consulting.",
+            "Master financial analysis, investment strategies, corporate finance, and financial planning for banking and investment careers.",
         },
         {
           title: "Marketing Management",
           icon: <ShoppingBag className="h-5 w-5 text-orange-500" />,
           description:
-            "Learn brand management, digital marketing, consumer behavior, and marketing analytics. Develop campaigns that drive business growth in competitive markets.",
-        },
-        {
-          title: "Retail Management",
-          icon: <ShoppingBag className="h-5 w-5 text-orange-500" />,
-          description:
-            "Specialize in retail operations, merchandising, supply chain management, and customer experience design for physical and digital retail environments.",
-        },
-        {
-          title: "Business Analytics",
-          icon: <BarChart3 className="h-5 w-5 text-orange-500" />,
-          description:
-            "Develop skills in data analysis, visualization, predictive modeling, and business intelligence to drive data-informed decision making.",
+            "Learn brand management, digital marketing, consumer behavior, and marketing analytics for business growth.",
         },
       ],
     },
@@ -90,13 +101,13 @@ export default function ProgramTabs() {
           title: "B.Sc in Artificial Intelligence and Machine Learning",
           icon: <Code className="h-5 w-5 text-orange-500" />,
           description:
-            "Study neural networks, deep learning, computer vision, natural language processing, and AI ethics. Build intelligent systems that can learn and adapt to solve complex problems.",
+            "Study neural networks, deep learning, computer vision, natural language processing, and AI ethics.",
         },
         {
           title: "Bachelor of Computer Applications (BCA)",
           icon: <Code className="h-5 w-5 text-orange-500" />,
           description:
-            "Comprehensive program covering programming, software development, database management, web technologies, and system analysis. Develop practical skills for the IT industry.",
+            "Comprehensive program covering programming, software development, database management, and web technologies.",
         },
       ],
     },
@@ -109,13 +120,13 @@ export default function ProgramTabs() {
           title: "B.Com in Computer Applications",
           icon: <BookOpen className="h-5 w-5 text-orange-500" />,
           description:
-            "Blend commerce education with computer applications. Study accounting, taxation, business law, and computer applications for modern business environments.",
+            "Blend commerce education with computer applications for modern business environments.",
         },
         {
           title: "B.Com in Business Analytics",
           icon: <BarChart3 className="h-5 w-5 text-orange-500" />,
           description:
-            "Combine commerce fundamentals with data analytics. Learn to analyze business data, create visualizations, and derive insights to support business decision-making.",
+            "Combine commerce fundamentals with data analytics for business decision-making.",
         },
       ],
     },
@@ -139,7 +150,13 @@ export default function ProgramTabs() {
   return (
     <div className="w-full py-20 bg-gray-200 dark:bg-gray-900">
       <div className="container mx-auto px-4">
-        <div className="text-center mb-16">
+        <motion.div
+          initial="hidden"
+          whileInView="visible"
+          viewport={{ once: false, margin: "-100px" }}
+          variants={fadeInUp}
+          className="text-center mb-16"
+        >
           <Heading size="lg" className="mb-4">
             Our Academic <span className="text-orange-500">Programs</span>
           </Heading>
@@ -147,13 +164,21 @@ export default function ProgramTabs() {
             Discover our comprehensive range of programs designed to prepare you
             for successful careers in Management, Science, and Commerce.
           </p>
-        </div>
+        </motion.div>
 
         {/* Tabs */}
-        <div className="flex flex-wrap justify-center gap-2 mb-8">
+        <motion.div
+          initial="hidden"
+          whileInView="visible"
+          viewport={{ once: false, margin: "-100px" }}
+          variants={fadeInUp}
+          className="flex flex-wrap justify-center gap-2 mb-8"
+        >
           {tabs.map((tab) => (
-            <button
+            <motion.button
               key={tab.id}
+              whileHover={{ scale: 1.05 }}
+              whileTap={{ scale: 0.95 }}
               onClick={() => handleTabChange(tab.id)}
               className={cn(
                 "flex items-center gap-2 px-6 py-3 rounded-lg text-white font-medium transition-all duration-300",
@@ -162,15 +187,22 @@ export default function ProgramTabs() {
             >
               {tab.icon}
               {tab.label}
-            </button>
+            </motion.button>
           ))}
-        </div>
+        </motion.div>
 
         {/* Content */}
-        <div className="bg-white dark:bg-gray-800 rounded-lg p-6 shadow-lg">
+        <motion.div
+          initial="hidden"
+          whileInView="visible"
+          viewport={{ once: false, margin: "-100px" }}
+          variants={staggerContainer}
+          className="bg-white dark:bg-gray-800 rounded-lg p-6 shadow-lg"
+        >
           {Object.keys(programContent).map((key) => (
-            <div
+            <motion.div
               key={key}
+              variants={fadeInUp}
               className={cn(
                 "transition-opacity duration-300",
                 activeTab === key ? "block opacity-100" : "hidden opacity-0"
@@ -187,9 +219,15 @@ export default function ProgramTabs() {
 
               {/* Mobile Slider View */}
               <div className="md:hidden">
-                <div className="relative">
+                <motion.div
+                  initial="hidden"
+                  whileInView="visible"
+                  viewport={{ once: false, margin: "-100px" }}
+                  variants={fadeInUp}
+                  className="relative"
+                >
                   <div className="overflow-hidden">
-                    <div
+                    <motion.div
                       className="transition-transform duration-300 ease-in-out"
                       style={{
                         transform: `translateX(-${currentSlide * 100}%)`,
@@ -197,8 +235,9 @@ export default function ProgramTabs() {
                     >
                       <div className="flex">
                         {programContent[key].programs.map((program, index) => (
-                          <div
+                          <motion.div
                             key={index}
+                            variants={fadeInUp}
                             className="w-full flex-shrink-0 px-1"
                           >
                             <div className="bg-gray-50 dark:bg-gray-700 p-6 rounded-lg shadow-md h-full">
@@ -212,49 +251,64 @@ export default function ProgramTabs() {
                                 {program.description}
                               </p>
                             </div>
-                          </div>
+                          </motion.div>
                         ))}
                       </div>
-                    </div>
+                    </motion.div>
                   </div>
 
                   {/* Navigation Buttons */}
                   <div className="flex justify-between mt-4">
-                    <button
+                    <motion.button
+                      whileHover={{ scale: 1.1 }}
+                      whileTap={{ scale: 0.9 }}
                       onClick={prevSlide}
                       className="!bg-orange-500 text-white p-2 rounded-full hover:bg-blue-900 transition-colors duration-300"
                       aria-label="Previous slide"
                     >
                       <ChevronLeft className="h-5 w-5" />
-                    </button>
+                    </motion.button>
                     <div className="flex items-center gap-1">
                       {programContent[key].programs.map((_, index) => (
-                        <span
+                        <motion.span
                           key={index}
-                          className={`block h-2 w-2 rounded-full ${
-                            currentSlide === index
-                              ? "bg-orange-500"
-                              : "bg-gray-300"
-                          }`}
+                          animate={{
+                            scale: currentSlide === index ? 1.2 : 1,
+                            backgroundColor:
+                              currentSlide === index
+                                ? "rgb(249, 115, 22)"
+                                : "rgb(209, 213, 219)",
+                          }}
+                          className="block h-2 w-2 rounded-full"
                         />
                       ))}
                     </div>
-                    <button
+                    <motion.button
+                      whileHover={{ scale: 1.1 }}
+                      whileTap={{ scale: 0.9 }}
                       onClick={nextSlide}
                       className="!bg-orange-500 text-white p-2 rounded-full hover:bg-blue-900 transition-colors duration-300"
                       aria-label="Next slide"
                     >
                       <ChevronRight className="h-5 w-5" />
-                    </button>
+                    </motion.button>
                   </div>
-                </div>
+                </motion.div>
               </div>
 
               {/* Desktop Grid View */}
-              <div className="hidden md:grid md:grid-cols-2 lg:grid-cols-3 gap-6">
+              <motion.div
+                initial="hidden"
+                whileInView="visible"
+                viewport={{ once: false, margin: "-100px" }}
+                variants={staggerContainer}
+                className="hidden md:grid md:grid-cols-2 lg:grid-cols-3 gap-6"
+              >
                 {programContent[key].programs.map((program, index) => (
-                  <div
+                  <motion.div
                     key={index}
+                    variants={fadeInUp}
+                    whileHover={{ y: -5 }}
                     className="bg-gray-100 dark:bg-gray-700 p-6 rounded-lg shadow-md hover:shadow-lg transition-shadow"
                   >
                     <div className="flex items-center gap-3 mb-3">
@@ -266,12 +320,12 @@ export default function ProgramTabs() {
                     <p className="text-gray-600 dark:text-gray-300">
                       {program.description}
                     </p>
-                  </div>
+                  </motion.div>
                 ))}
-              </div>
-            </div>
+              </motion.div>
+            </motion.div>
           ))}
-        </div>
+        </motion.div>
       </div>
     </div>
   );
