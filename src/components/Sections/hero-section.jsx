@@ -128,11 +128,12 @@ export default function HeroSection() {
   useEffect(() => {
     if (formData.stream) {
       setCourseOptions(streamCourses[formData.stream] || []);
-      if (formData.course) {
-        setFormData((prev) => ({ ...prev, course: "" }));
-      }
+      // Reset course when stream changes
+      setFormData((prev) => ({ ...prev, course: "" }));
+    } else {
+      setCourseOptions([]);
     }
-  }, [formData.stream, formData.course]);
+  }, [formData.stream]);
 
   // Handle input changes with validation
   const handleChange = (e) => {
@@ -163,7 +164,12 @@ export default function HeroSection() {
 
   // Handle select changes
   const handleSelectChange = (name, value) => {
-    setFormData((prev) => ({ ...prev, [name]: value }));
+    if (name === "stream") {
+      // When stream changes, reset course
+      setFormData((prev) => ({ ...prev, stream: value, course: "" }));
+    } else {
+      setFormData((prev) => ({ ...prev, [name]: value }));
+    }
   };
 
   // Form validation
@@ -195,13 +201,74 @@ export default function HeroSection() {
   };
 
   // Handle form submission
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
 
     if (validateForm()) {
-      console.log("Form submitted:", formData);
-      // Add form submission logic here
-      alert("Form submitted successfully!");
+      try {
+        const response = await fetch(
+          "https://stealthlearn.in/SSDC_api/submit_form.php",
+          {
+            method: "POST",
+            headers: {
+              "Content-Type": "application/json",
+            },
+            mode: "cors",
+            credentials: "omit",
+            body: JSON.stringify(formData),
+          }
+        );
+
+        if (!response.ok) {
+          const errorData = await response.json();
+          throw new Error(errorData.message || "Server error occurred");
+        }
+
+        const result = await response.json();
+
+        if (result.success) {
+          alert("Form submitted successfully!");
+          // Reset form
+          setFormData({
+            name: "",
+            email: "",
+            phone: "",
+            city: "",
+            stream: "",
+            course: "",
+          });
+          setErrors({});
+        } else {
+          // Handle specific error messages from backend
+          if (result.message.includes("Missing required fields")) {
+            const missingFields = result.message
+              .replace("Missing required fields: ", "")
+              .split(", ");
+            const newErrors = {};
+            missingFields.forEach((field) => {
+              newErrors[field] = `${field} is required`;
+            });
+            setErrors(newErrors);
+          } else if (result.message.includes("Invalid email format")) {
+            setErrors((prev) => ({
+              ...prev,
+              email: "Please enter a valid email address",
+            }));
+          } else if (result.message.includes("Invalid phone number format")) {
+            setErrors((prev) => ({
+              ...prev,
+              phone: "Please enter a valid 10-digit phone number",
+            }));
+          } else {
+            alert(result.message || "Error submitting form");
+          }
+        }
+      } catch (error) {
+        console.error("Error:", error);
+        alert(
+          error.message || "Error submitting form. Please try again later."
+        );
+      }
     }
   };
 
