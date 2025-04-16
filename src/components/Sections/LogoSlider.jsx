@@ -17,10 +17,10 @@ const scaleIn = {
 };
 
 const logos = [
-  { src: "/src/assets/placement-logos/zamoto.png", alt: "Zomato" },
-  { src: "/src/assets/placement-logos/zudio.png", alt: "Zudio" },
+  { src: "./src/assets/placement-logos/zamoto.png", alt: "Zomato" },
+  { src: "./src/assets/placement-logos/zudio.png", alt: "Zudio" },
   {
-    src: "/src/assets/placement-logos/profectus-capital.png",
+    src: "./src/assets/placement-logos/profectus-capital.png",
     alt: "Profectus Capital",
   },
   { src: "/src/assets/placement-logos/nestle.png", alt: "Nestle" },
