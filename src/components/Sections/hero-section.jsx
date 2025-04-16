@@ -347,14 +347,12 @@ export default function HeroSection() {
       <div className="container max-w-[1366px] mx-auto py-12 relative z-10">
         {/* Top bar with logo and tagline */}
         <div className="flex justify-between items-center mb-16">
-          <div className="flex items-center space-x-3">
-            <div className="w-12 h-12 bg-white rounded-lg flex items-center justify-center">
-              <span className="text-blue-900 font-bold text-xl">SS</span>
-            </div>
-            <div>
-              <h3 className="font-bold text-white">SIVA SIVANI</h3>
-              <p className="text-xs text-blue-100">DEGREE COLLEGE</p>
-            </div>
+          <div className="flex items-center">
+            <img 
+              src="/ssdcLogo.svg"
+              alt="Siva Sivani Degree College Logo"
+              className="h-12 w-auto"
+            />
           </div>
           <div className="hidden md:block">
             <p className="text-sm text-blue-100">
