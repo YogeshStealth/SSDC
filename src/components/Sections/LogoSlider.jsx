@@ -1,6 +1,21 @@
 import React from "react";
 import { motion } from "framer-motion";
 import Heading from "@/components/ui/heading";
+import zomatoLogo from "@/assets/placement-logos/zamoto.png";
+import zudioLogo from "@/assets/placement-logos/zudio.png";
+import profectusLogo from "@/assets/placement-logos/profectus-capital.png";
+import nestleLogo from "@/assets/placement-logos/nestle.png";
+  import oxaneLogo from "@/assets/placement-logos/oxane.png";
+import metricsLogo from "@/assets/placement-logos/metrics.png";
+import mePlusLogo from "@/assets/placement-logos/me-plus.png";
+import kpmgLogo from "@/assets/placement-logos/kpmg.png";
+import godrejLogo from "@/assets/placement-logos/godrej-jersey.png";
+import itcLogo from "@/assets/placement-logos/itc.png";
+import factLogo from "@/assets/placement-logos/fact.png";
+import deloitteLogo from "@/assets/placement-logos/deloitte.png";
+import codeyoungLogo from "@/assets/placement-logos/codeyoung.png";
+import berkadiaLogo from "@/assets/placement-logos/berkadia.png";
+import asianPaintsLogo from "@/assets/placement-logos/asian-paints.png";
 
 const fadeInUp = {
   hidden: { opacity: 0, y: 20 },
@@ -17,27 +32,21 @@ const scaleIn = {
 };
 
 const logos = [
-  { src: "./src/assets/placement-logos/zamoto.png", alt: "Zomato" },
-  { src: "./src/assets/placement-logos/zudio.png", alt: "Zudio" },
-  {
-    src: "./src/assets/placement-logos/profectus-capital.png",
-    alt: "Profectus Capital",
-  },
-  { src: "/src/assets/placement-logos/nestle.png", alt: "Nestle" },
-  { src: "/src/assets/placement-logos/oxane.png", alt: "Oxane" },
-  { src: "/src/assets/placement-logos/metrics.png", alt: "Metrics" },
-  { src: "/src/assets/placement-logos/me-plus.png", alt: "Me Plus" },
-  { src: "/src/assets/placement-logos/kpmg.png", alt: "KPMG" },
-  {
-    src: "/src/assets/placement-logos/godrej-jersey.png",
-    alt: "Godrej Jersey",
-  },
-  { src: "/src/assets/placement-logos/itc.png", alt: "ITC" },
-  { src: "/src/assets/placement-logos/fact.png", alt: "FACT" },
-  { src: "/src/assets/placement-logos/deloitte.png", alt: "Deloitte" },
-  { src: "/src/assets/placement-logos/codeyoung.png", alt: "CodeYoung" },
-  { src: "/src/assets/placement-logos/berkadia.png", alt: "Berkadia" },
-  { src: "/src/assets/placement-logos/asian-paints.png", alt: "Asian Paints" },
+  { src: zomatoLogo, alt: "Zomato" },
+  { src: zudioLogo, alt: "Zudio" },
+  { src: profectusLogo, alt: "Profectus Capital" },
+  { src: nestleLogo, alt: "Nestle" },
+  { src: oxaneLogo, alt: "Oxane" },
+  { src: metricsLogo, alt: "Metrics" },
+  { src: mePlusLogo, alt: "Me Plus" },
+  { src: kpmgLogo, alt: "KPMG" },
+  { src: godrejLogo, alt: "Godrej Jersey" },
+  { src: itcLogo, alt: "ITC" },
+  { src: factLogo, alt: "FACT" },
+  { src: deloitteLogo, alt: "Deloitte" },
+  { src: codeyoungLogo, alt: "CodeYoung" },
+  { src: berkadiaLogo, alt: "Berkadia" },
+  { src: asianPaintsLogo, alt: "Asian Paints" },
 ];
 
 const LogoSlider = ({ className = "" }) => {
