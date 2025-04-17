@@ -88,10 +88,10 @@ export default function Timeline() {
       whileInView="visible"
       viewport={{ once: true, margin: "-100px" }}
       variants={fadeInUp}
-      className="w-full bg-gray-50 py-20"
+      className="w-full bg-gray-50 pb-40 pt-12"
     >
       <div className="container mx-auto px-4">
-        <motion.div variants={fadeInUp} className="text-center mb-16">
+        <motion.div variants={fadeInUp} className="text-center mb-20">
           <Heading size="lg" className="mb-4 !text-blue-900">
             Our Teaching <span className="text-orange-500">Methodology</span>
           </Heading>
@@ -103,11 +103,11 @@ export default function Timeline() {
         </motion.div>
 
         {/* Timeline Container with Extra Padding */}
-        <div className="lg:pt-30">
+        <div className="lg:pt-20">
           {/* Desktop Timeline */}
           <motion.div
             variants={scaleIn}
-            className="hidden lg:block relative py-20"
+            className="hidden lg:block relative py-32"
           >
             {/* Center Line */}
             <motion.div
@@ -162,8 +162,8 @@ export default function Timeline() {
                       className={cn(
                         "absolute w-full max-w-[220px] rounded-lg shadow-md overflow-hidden transition-all duration-300 left-1/2 transform -translate-x-1/2",
                         index % 2 === 0
-                          ? "top-0 -translate-y-[calc(100%+20px)]"
-                          : "bottom-0 translate-y-[calc(100%+20px)]",
+                          ? "top-0 -translate-y-[calc(100%+30px)]"
+                          : "bottom-0 translate-y-[calc(100%+30px)]",
                         hoveredIndex === index ? "shadow-lg scale-105" : ""
                       )}
                     >
@@ -231,12 +231,12 @@ export default function Timeline() {
                           {method.icon}
                         </motion.div>
                       </div>
-                      <h3 className="text-lg font-bold mb-1 text-center">
-                        {method.title}
-                      </h3>
-                      <p className="text-sm text-center">
-                        {method.description}
-                      </p>
+                      <div className="text-center">
+                        <h3 className="text-lg font-bold mb-1">
+                          {method.title}
+                        </h3>
+                        <p className="text-sm">{method.description}</p>
+                      </div>
                     </div>
                   </motion.div>
 

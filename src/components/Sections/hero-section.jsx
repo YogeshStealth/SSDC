@@ -100,12 +100,12 @@ const features = [
 ];
 
 const fadeInLeft = {
-  hidden: { opacity: 0, x: -100 },
+  hidden: { opacity: 0, x: -20 },
   visible: {
     opacity: 1,
     x: 0,
     transition: {
-      duration: 0.8,
+      duration: 0.6,
       ease: "easeOut",
       delay: 0.2,
     },
@@ -113,12 +113,12 @@ const fadeInLeft = {
 };
 
 const fadeInRight = {
-  hidden: { opacity: 0, x: 100 },
+  hidden: { opacity: 0, x: 20 },
   visible: {
     opacity: 1,
     x: 0,
     transition: {
-      duration: 0.8,
+      duration: 0.6,
       ease: "easeOut",
       delay: 0.2,
     },
@@ -126,12 +126,12 @@ const fadeInRight = {
 };
 
 const fadeInUp = {
-  hidden: { opacity: 0, y: 50 },
+  hidden: { opacity: 0, y: 20 },
   visible: {
     opacity: 1,
     y: 0,
     transition: {
-      duration: 0.8,
+      duration: 0.6,
       ease: "easeOut",
       delay: 0.2,
     },
@@ -143,7 +143,7 @@ const fadeIn = {
   visible: {
     opacity: 1,
     transition: {
-      duration: 0.8,
+      duration: 0.6,
       ease: "easeOut",
       delay: 0.2,
     },
@@ -162,6 +162,7 @@ export default function HeroSection() {
 
   const [errors, setErrors] = useState({});
   const [courseOptions, setCourseOptions] = useState([]);
+  const [isSubmitting, setIsSubmitting] = useState(false);
 
   const cities = [
     "Hyderabad",
@@ -263,6 +264,7 @@ export default function HeroSection() {
   // Handle form submission
   const handleSubmit = async (e) => {
     e.preventDefault();
+    setIsSubmitting(true);
 
     if (validateForm()) {
       try {
@@ -330,10 +332,11 @@ export default function HeroSection() {
         );
       }
     }
+    setIsSubmitting(false);
   };
 
   return (
-    <div className="relative min-h-screen">
+    <div className="relative min-h-screen overflow-hidden">
       {/* Background image */}
       <div className="absolute inset-0">
         <img
@@ -344,11 +347,11 @@ export default function HeroSection() {
         <div className="absolute inset-0 bg-blue-900/80"></div>
       </div>
 
-      <div className="container max-w-[1366px] mx-auto py-12 relative z-10">
+      <div className="container max-w-[1366px] mx-auto py-12 relative z-10 overflow-hidden">
         {/* Top bar with logo and tagline */}
         <div className="flex justify-between items-center mb-16">
           <div className="flex items-center">
-            <img 
+            <img
               src="/ssdcLogo.svg"
               alt="Siva Sivani Degree College Logo"
               className="h-12 w-auto"
@@ -371,7 +374,7 @@ export default function HeroSection() {
               <motion.h1
                 initial="hidden"
                 whileInView="visible"
-                viewport={{ once: false, margin: "-100px" }}
+                viewport={{ once: true, margin: "0px" }}
                 variants={fadeInLeft}
                 className="text-4xl md:text-5xl lg:text-6xl font-bold text-white mb-6"
               >
@@ -383,7 +386,7 @@ export default function HeroSection() {
             <motion.p
               initial="hidden"
               whileInView="visible"
-              viewport={{ once: false, margin: "-100px" }}
+              viewport={{ once: true, margin: "0px" }}
               variants={fadeInLeft}
               className="text-lg md:text-xl text-gray-200 mb-8"
             >
@@ -397,7 +400,7 @@ export default function HeroSection() {
                   key={program.title}
                   initial="hidden"
                   whileInView="visible"
-                  viewport={{ once: false, margin: "-100px" }}
+                  viewport={{ once: true, margin: "0px" }}
                   variants={fadeInUp}
                   transition={{ delay: index * 0.2 }}
                   className="bg-white/10 backdrop-blur-[5px] rounded-xl p-6 border border-white/20 transform transition-all hover:bg-white/20"
@@ -425,7 +428,7 @@ export default function HeroSection() {
             <motion.div
               initial="hidden"
               whileInView="visible"
-              viewport={{ once: false, margin: "-100px" }}
+              viewport={{ once: true, margin: "0px" }}
               variants={fadeIn}
               className="hidden md:block pt-6"
             >
@@ -435,7 +438,7 @@ export default function HeroSection() {
                     key={feature}
                     initial="hidden"
                     whileInView="visible"
-                    viewport={{ once: false, margin: "-100px" }}
+                    viewport={{ once: true, margin: "0px" }}
                     variants={fadeIn}
                     transition={{ delay: index * 0.2 }}
                     className="flex items-center space-x-2"
@@ -452,203 +455,210 @@ export default function HeroSection() {
           <motion.div
             initial="hidden"
             whileInView="visible"
-            viewport={{ once: false, margin: "-100px" }}
+            viewport={{ once: true, margin: "0px" }}
             variants={fadeInRight}
             className="lg:col-span-5"
           >
-            <div className="bg-white rounded-2xl shadow-xl overflow-hidden">
-              <div className="bg-blue-900 py-6 px-8">
-                <Heading size="md" className="text-white" as="h2">
+            <div className="bg-white rounded-2xl shadow-xl overflow-hidden w-[90%] max-w-[400px] mx-auto lg:scale-90">
+              <div className="bg-blue-900 py-4 px-6">
+                <Heading size="sm" className="text-white" as="h2">
                   Admission Enquiry
                 </Heading>
-                <p className="text-blue-200 text-sm">
+                <p className="text-blue-200 text-xs">
                   Fill the form below to get started
                 </p>
               </div>
 
-              <form onSubmit={handleSubmit} className="p-8">
-                {/* Name Field */}
-                <div className="space-y-2 mb-5">
-                  <Label htmlFor="name" className="text-gray-700">
-                    Full Name *
-                  </Label>
-                  <Input
-                    id="name"
-                    name="name"
-                    value={formData.name}
-                    onChange={handleChange}
-                    placeholder="Enter your full name"
-                    className={`rounded-lg border-gray-200 ${
-                      errors.name ? "border-red-500" : ""
-                    }`}
-                  />
-                  {errors.name && (
-                    <p className="text-red-500 text-sm">{errors.name}</p>
-                  )}
-                </div>
-
-                {/* Email Field */}
-                <div className="space-y-2 mb-5">
-                  <Label htmlFor="email" className="text-gray-700">
-                    Email Address *
-                  </Label>
-                  <Input
-                    id="email"
-                    name="email"
-                    type="email"
-                    value={formData.email}
-                    onChange={handleChange}
-                    placeholder="Enter your email address"
-                    className={`rounded-lg border-gray-200 ${
-                      errors.email ? "border-red-500" : ""
-                    }`}
-                  />
-                  {errors.email && (
-                    <p className="text-red-500 text-sm">{errors.email}</p>
-                  )}
-                </div>
-
-                {/* Phone Field */}
-                <div className="space-y-2 mb-5">
-                  <Label htmlFor="phone" className="text-gray-700">
-                    Phone Number *
-                  </Label>
-                  <Input
-                    id="phone"
-                    name="phone"
-                    value={formData.phone}
-                    onChange={handleChange}
-                    placeholder="Enter your 10-digit phone number"
-                    className={`rounded-lg border-gray-200 ${
-                      errors.phone ? "border-red-500" : ""
-                    }`}
-                  />
-                  {errors.phone && (
-                    <p className="text-red-500 text-sm">{errors.phone}</p>
-                  )}
-                </div>
-
-                {/* City Field */}
-                <div className="space-y-2 mb-5">
-                  <Label htmlFor="city" className="text-gray-700">
-                    Select City *
-                  </Label>
-                  <Select
-                    onValueChange={(value) => handleSelectChange("city", value)}
-                    value={formData.city}
-                  >
-                    <SelectTrigger
-                      className={`w-full rounded-lg border-gray-200 text-gray-500 ${
-                        errors.city ? "border-red-500" : ""
+              <form onSubmit={handleSubmit} className="p-6">
+                <div className="grid gap-4">
+                  {/* Name Field */}
+                  <div className="space-y-1">
+                    <Label htmlFor="name" className="text-gray-700 text-sm">
+                      Full Name *
+                    </Label>
+                    <Input
+                      id="name"
+                      name="name"
+                      value={formData.name}
+                      onChange={handleChange}
+                      placeholder="Enter your full name"
+                      className={`rounded-lg border-gray-200 h-9 ${
+                        errors.name ? "border-red-500" : ""
                       }`}
-                    >
-                      <SelectValue placeholder="Select your city" />
-                    </SelectTrigger>
-                    <SelectContent className="bg-white border rounded-lg shadow-lg">
-                      {cities.map((city) => (
-                        <SelectItem
-                          key={city}
-                          value={city}
-                          className="hover:bg-gray-100"
-                        >
-                          {city}
-                        </SelectItem>
-                      ))}
-                    </SelectContent>
-                  </Select>
-                  {errors.city && (
-                    <p className="text-red-500 text-sm">{errors.city}</p>
-                  )}
-                </div>
+                    />
+                    {errors.name && (
+                      <p className="text-red-500 text-xs">{errors.name}</p>
+                    )}
+                  </div>
 
-                {/* Stream Field */}
-                <div className="space-y-2 mb-5">
-                  <Label htmlFor="stream" className="text-gray-700">
-                    Select Stream *
-                  </Label>
-                  <Select
-                    onValueChange={(value) =>
-                      handleSelectChange("stream", value)
-                    }
-                    value={formData.stream}
-                  >
-                    <SelectTrigger
-                      className={`w-full rounded-lg border-gray-200 text-gray-500 ${
-                        errors.stream ? "border-red-500" : ""
+                  {/* Email Field */}
+                  <div className="space-y-1">
+                    <Label htmlFor="email" className="text-gray-700 text-sm">
+                      Email Address *
+                    </Label>
+                    <Input
+                      id="email"
+                      name="email"
+                      type="email"
+                      value={formData.email}
+                      onChange={handleChange}
+                      placeholder="Enter your email address"
+                      className={`rounded-lg border-gray-200 h-9 ${
+                        errors.email ? "border-red-500" : ""
                       }`}
-                    >
-                      <SelectValue placeholder="Select your stream" />
-                    </SelectTrigger>
-                    <SelectContent className="bg-white border rounded-lg shadow-lg">
-                      {Object.keys(streamCourses).map((stream) => (
-                        <SelectItem
-                          key={stream}
-                          value={stream}
-                          className="hover:bg-gray-100"
-                        >
-                          {stream}
-                        </SelectItem>
-                      ))}
-                    </SelectContent>
-                  </Select>
-                  {errors.stream && (
-                    <p className="text-red-500 text-sm">{errors.stream}</p>
-                  )}
-                </div>
+                    />
+                    {errors.email && (
+                      <p className="text-red-500 text-xs">{errors.email}</p>
+                    )}
+                  </div>
 
-                {/* Course Field */}
-                <div className="space-y-2 mb-6">
-                  <Label htmlFor="course" className="text-gray-700">
-                    Select Course *
-                  </Label>
-                  <Select
-                    onValueChange={(value) =>
-                      handleSelectChange("course", value)
-                    }
-                    value={formData.course}
-                    disabled={!formData.stream}
-                  >
-                    <SelectTrigger
-                      className={`w-full rounded-lg border-gray-200 text-gray-500 ${
-                        errors.course ? "border-red-500" : ""
+                  {/* Phone Field */}
+                  <div className="space-y-1">
+                    <Label htmlFor="phone" className="text-gray-700 text-sm">
+                      Phone Number *
+                    </Label>
+                    <Input
+                      id="phone"
+                      name="phone"
+                      value={formData.phone}
+                      onChange={handleChange}
+                      placeholder="Enter your 10-digit phone number"
+                      className={`rounded-lg border-gray-200 h-9 ${
+                        errors.phone ? "border-red-500" : ""
                       }`}
+                    />
+                    {errors.phone && (
+                      <p className="text-red-500 text-xs">{errors.phone}</p>
+                    )}
+                  </div>
+
+                  {/* City Field */}
+                  <div className="space-y-1">
+                    <Label htmlFor="city" className="text-gray-700 text-sm">
+                      Select City *
+                    </Label>
+                    <Select
+                      onValueChange={(value) =>
+                        handleSelectChange("city", value)
+                      }
+                      value={formData.city}
                     >
-                      <SelectValue
-                        placeholder={
-                          formData.stream
-                            ? "Select your course"
-                            : "First select a stream"
-                        }
-                      />
-                    </SelectTrigger>
-                    <SelectContent className="bg-white border rounded-lg shadow-lg">
-                      {courseOptions.map((course) => (
-                        <SelectItem
-                          key={course}
-                          value={course}
-                          className="hover:bg-gray-100"
-                        >
-                          {course}
-                        </SelectItem>
-                      ))}
-                    </SelectContent>
-                  </Select>
-                  {errors.course && (
-                    <p className="text-red-500 text-sm">{errors.course}</p>
-                  )}
+                      <SelectTrigger
+                        className={`w-full rounded-lg border-gray-200 text-gray-500 h-9 ${
+                          errors.city ? "border-red-500" : ""
+                        }`}
+                      >
+                        <SelectValue placeholder="Select your city" />
+                      </SelectTrigger>
+                      <SelectContent className="bg-white border rounded-lg shadow-lg">
+                        {cities.map((city) => (
+                          <SelectItem
+                            key={city}
+                            value={city}
+                            className="hover:bg-gray-100"
+                          >
+                            {city}
+                          </SelectItem>
+                        ))}
+                      </SelectContent>
+                    </Select>
+                    {errors.city && (
+                      <p className="text-red-500 text-xs">{errors.city}</p>
+                    )}
+                  </div>
+
+                  {/* Stream Field */}
+                  <div className="space-y-1">
+                    <Label htmlFor="stream" className="text-gray-700 text-sm">
+                      Select Stream *
+                    </Label>
+                    <Select
+                      onValueChange={(value) =>
+                        handleSelectChange("stream", value)
+                      }
+                      value={formData.stream}
+                    >
+                      <SelectTrigger
+                        className={`w-full rounded-lg border-gray-200 text-gray-500 h-9 ${
+                          errors.stream ? "border-red-500" : ""
+                        }`}
+                      >
+                        <SelectValue placeholder="Select your stream" />
+                      </SelectTrigger>
+                      <SelectContent className="bg-white border rounded-lg shadow-lg">
+                        {Object.keys(streamCourses).map((stream) => (
+                          <SelectItem
+                            key={stream}
+                            value={stream}
+                            className="hover:bg-gray-100"
+                          >
+                            {stream}
+                          </SelectItem>
+                        ))}
+                      </SelectContent>
+                    </Select>
+                    {errors.stream && (
+                      <p className="text-red-500 text-xs">{errors.stream}</p>
+                    )}
+                  </div>
+
+                  {/* Course Field */}
+                  <div className="space-y-1">
+                    <Label htmlFor="course" className="text-gray-700 text-sm">
+                      Select Course *
+                    </Label>
+                    <Select
+                      onValueChange={(value) =>
+                        handleSelectChange("course", value)
+                      }
+                      value={formData.course}
+                      disabled={!formData.stream}
+                    >
+                      <SelectTrigger
+                        className={`w-full rounded-lg border-gray-200 text-gray-500 h-9 ${
+                          errors.course ? "border-red-500" : ""
+                        }`}
+                      >
+                        <SelectValue
+                          placeholder={
+                            formData.stream
+                              ? "Select your course"
+                              : "First select a stream"
+                          }
+                        />
+                      </SelectTrigger>
+                      <SelectContent className="bg-white border rounded-lg shadow-lg">
+                        {courseOptions.map((course) => (
+                          <SelectItem
+                            key={course}
+                            value={course}
+                            className="hover:bg-gray-100"
+                          >
+                            {course}
+                          </SelectItem>
+                        ))}
+                      </SelectContent>
+                    </Select>
+                    {errors.course && (
+                      <p className="text-red-500 text-xs">{errors.course}</p>
+                    )}
+                  </div>
+
+                  <Button
+                    type="submit"
+                    disabled={isSubmitting}
+                    className={`w-full !bg-orange-500 hover:!bg-orange-600 text-white rounded-lg py-4 transition-all duration-200 ${
+                      isSubmitting ? "opacity-50 cursor-not-allowed" : ""
+                    }`}
+                  >
+                    {isSubmitting ? "Submitting..." : "Submit Enquiry"}
+                  </Button>
+
+                  <p className="text-center text-gray-500 text-xs mt-2">
+                    By submitting this form, you agree to our Terms of Service
+                    and Privacy Policy
+                  </p>
                 </div>
-
-                <Button
-                  type="submit"
-                  className="w-full !bg-orange-500 hover:!bg-orange-600 text-white rounded-lg py-6"
-                >
-                  Submit Enquiry
-                </Button>
-
-                <p className="text-center text-gray-500 text-xs mt-4">
-                  By submitting this form, you agree to our Terms of Service and
-                  Privacy Policy
-                </p>
               </form>
             </div>
           </motion.div>

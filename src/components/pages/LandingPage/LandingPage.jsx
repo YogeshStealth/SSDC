@@ -4,7 +4,8 @@ import Section from "@/components/layout/SectionWrapper";
 import Placements from "@/components/Sections/PlacementStats";
 import ProgramSection from "@/components/Sections/ProgramSection";
 import Timeline from "@/components/Sections/Timeline";
-
+import CircleView from "@/components/Sections/CircleView";
+import TrainingCertifications from "@/components/Sections/training-section";
 const LandingPage = () => {
   return (
     <div>
@@ -20,6 +21,12 @@ const LandingPage = () => {
       </Section>
       <Section>
         <Timeline />
+      </Section>
+      <Section>
+        <CircleView />
+      </Section>
+      <Section>
+        <TrainingCertifications />
       </Section>
     </div>
   );
