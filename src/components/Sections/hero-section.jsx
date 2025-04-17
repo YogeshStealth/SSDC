@@ -14,7 +14,7 @@ import {
 import { Input } from "@/components/ui/input";
 import { Button } from "@/components/ui/button";
 import { Label } from "@/components/ui/label";
-import { ChevronRight, CheckCircle } from "lucide-react";
+import { ChevronRight, CheckCircle, Phone } from "lucide-react";
 
 const streamCourses = {
   Management: [
@@ -357,11 +357,17 @@ export default function HeroSection() {
               className="h-12 w-auto"
             />
           </div>
-          <div className="hidden md:block">
-            <p className="text-sm text-blue-100">
-              Admissions Hotline:{" "}
-              <span className="text-white font-semibold">+91 98498 50865</span>
-            </p>
+          <div className="block">
+            <motion.a
+              href="tel:+919849860865"
+              initial={{ opacity: 0, y: -10 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.5 }}
+              className="inline-flex items-center px-4 py-2 bg-orange-500 hover:bg-orange-600 text-white rounded-full transition-all duration-300 group"
+            >
+              <Phone className="h-4 w-4 mr-2 animate-bounce text-white" />
+              <span className="font-medium text-white">Call Us Now</span>
+            </motion.a>
           </div>
         </div>
 
@@ -414,13 +420,6 @@ export default function HeroSection() {
                   <p className="text-sm text-blue-100 mb-3">
                     {program.description}
                   </p>
-                  <Button
-                    variant="ghost"
-                    className="!bg-transparent text-orange-300 hover:!bg-white hover:text-orange-400 rounded-full px-6 py-2 transition-all duration-200"
-                  >
-                    Learn more
-                    <ChevronRight className="h-4 w-4 ml-1" />
-                  </Button>
                 </motion.div>
               ))}
             </div>
