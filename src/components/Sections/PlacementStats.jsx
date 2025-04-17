@@ -1,20 +1,13 @@
 import React, { useState, useEffect, useRef } from "react";
-import { motion } from "framer-motion";
+import { motion, AnimatePresence } from "framer-motion";
 import Heading from "@/components/ui/heading";
 import backgroundImage from "@/assets/backgroundTwo.jpg";
 
 const stats = [
   {
-    year: "2023-24",
-    offers: 839,
-    worldCampus: 48,
-    lpa: 7.5,
-    description: "for 365 Students",
-  },
-  {
     year: "2024-25 (Upto JAN)",
     offers: 600,
-    worldCampus: 30,
+    companies: 50,
     lpa: 6.5,
     description: "for 165 Students",
   },
@@ -89,83 +82,74 @@ const Counter = ({ end, duration = 2000, suffix = "" }) => {
 };
 
 const fadeInUp = {
-  hidden: { opacity: 0, y: 20 },
-  visible: { opacity: 1, y: 0, transition: { duration: 0.6, ease: "easeOut" } },
-};
-
-const fadeInLeft = {
-  hidden: { opacity: 0, x: -20 },
-  visible: { opacity: 1, x: 0, transition: { duration: 0.6, ease: "easeOut" } },
-};
-
-const fadeInRight = {
-  hidden: { opacity: 0, x: 20 },
-  visible: { opacity: 1, x: 0, transition: { duration: 0.6, ease: "easeOut" } },
-};
-
-const scaleIn = {
-  hidden: { opacity: 0, scale: 0.8 },
+  hidden: { opacity: 0, y: 30 },
   visible: {
     opacity: 1,
+    y: 0,
+    transition: {
+      duration: 0.7,
+      ease: [0.215, 0.61, 0.355, 1.0],
+    },
+  },
+};
+
+const cardVariants = {
+  hidden: {
+    opacity: 0,
+    y: 20,
+    scale: 0.95,
+  },
+  visible: {
+    opacity: 1,
+    y: 0,
     scale: 1,
-    transition: { duration: 0.6, ease: "easeOut" },
+    transition: {
+      type: "spring",
+      stiffness: 100,
+      damping: 12,
+      duration: 0.5,
+    },
   },
 };
 
 const StatCard = ({ title, value, suffix = "", description }) => (
   <motion.div
-    whileHover={{ scale: 1.05 }}
-    className="flex flex-col items-center p-6 bg-white/95 dark:bg-gray-800/95 backdrop-blur-sm rounded-lg shadow-lg"
+    variants={cardVariants}
+    whileHover={{
+      scale: 1.05,
+      transition: {
+        type: "spring",
+        stiffness: 400,
+        damping: 25,
+      },
+    }}
+    className="flex flex-col items-center p-8 bg-white/95 dark:bg-gray-800/95 backdrop-blur-sm rounded-xl shadow-lg border border-white/20"
   >
-    <Counter end={value} suffix={suffix} />
-    <h3 className="mt-2 text-lg font-semibold text-gray-700 dark:text-gray-300">
+    <motion.div
+      initial={{ scale: 0.5, opacity: 0 }}
+      animate={{ scale: 1, opacity: 1 }}
+      transition={{ delay: 0.2, duration: 0.5 }}
+    >
+      <Counter end={value} suffix={suffix} />
+    </motion.div>
+    <motion.h3
+      className="mt-3 text-xl font-semibold text-gray-700 dark:text-gray-300 text-center"
+      whileHover={{ scale: 1.05 }}
+      transition={{ type: "spring", stiffness: 400 }}
+    >
       {title}
-    </h3>
+    </motion.h3>
     {description && (
-      <p className="mt-1 text-sm text-gray-500 dark:text-gray-400">
+      <motion.p
+        className="mt-2 text-base text-gray-500 dark:text-gray-400 text-center"
+        initial={{ opacity: 0 }}
+        animate={{ opacity: 1 }}
+        transition={{ delay: 0.3 }}
+      >
         {description}
-      </p>
+      </motion.p>
     )}
   </motion.div>
-);
-
-const YearStats = ({ data, isOld = false }) => (
-  <motion.div
-    initial="hidden"
-    whileInView="visible"
-    viewport={{ once: true, margin: "-100px" }}
-    variants={isOld ? fadeInLeft : fadeInRight}
-    className={`w-full md:w-1/2 px-4 ${isOld ? "hidden md:block" : ""}`}
-  >
-    <motion.h3
-      variants={fadeInUp}
-      className="text-xl md:text-2xl font-bold text-center mb-6 text-white drop-shadow-md"
-    >
-      Placements {data.year}
-    </motion.h3>
-    <motion.div
-      variants={scaleIn}
-      className="grid grid-cols-1 lg:grid-cols-3 gap-6"
-    >
-      <StatCard
-        title="Placement Offers"
-        value={data.offers}
-        description={data.description}
-      />
-      <StatCard title="World Campus" value={data.worldCampus} suffix="+" />
-      <StatCard title="Highest CTC" value={data.lpa} suffix=" LPA" />
-    </motion.div>
-  </motion.div>
-);
-
-const VerticalDivider = () => (
-  <motion.div
-    initial={{ scaleY: 0 }}
-    whileInView={{ scaleY: 1 }}
-    viewport={{ once: true }}
-    transition={{ duration: 1, ease: "easeOut" }}
-    className="hidden md:block w-px bg-orange-500 mx-8 self-stretch opacity-100"
-  />
 );
 
 const PlacementStats = ({ className = "" }) => {
@@ -175,7 +159,7 @@ const PlacementStats = ({ className = "" }) => {
       whileInView="visible"
       viewport={{ once: true, margin: "-100px" }}
       variants={fadeInUp}
-      className={`w-full py-20 relative ${className}`}
+      className={`w-full py-24 relative ${className}`}
       style={{
         backgroundImage: `url(${backgroundImage})`,
         backgroundSize: "cover",
@@ -183,32 +167,60 @@ const PlacementStats = ({ className = "" }) => {
         backgroundRepeat: "no-repeat",
       }}
     >
-      {/* Gradient Overlay */}
+      {/* Enhanced Gradient Overlay */}
       <motion.div
         initial={{ opacity: 0 }}
         whileInView={{ opacity: 1 }}
         viewport={{ once: true }}
         transition={{ duration: 1 }}
-        className="absolute inset-0 bg-gradient-to-r from-blue-900/30 to-blue-800/30"
+        className="absolute inset-0 bg-gradient-to-br from-blue-900/40 via-blue-800/30 to-blue-900/40"
       />
 
       <div className="container mx-auto px-4 relative z-10">
         <motion.div variants={fadeInUp} className="text-center mb-16">
-          <Heading size="lg" className="mb-4 text-white drop-shadow-md">
+          <Heading size="lg" className="mb-4 text-white drop-shadow-lg">
             Our Placement <span className="text-orange-500">Statistics</span>
           </Heading>
-          <p className="text-lg text-gray-100">
+          <motion.p
+            className="text-xl text-gray-100 max-w-2xl mx-auto"
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ delay: 0.2 }}
+          >
             Track record of successful placements and career opportunities
-          </p>
+          </motion.p>
         </motion.div>
 
         <motion.div
-          variants={scaleIn}
-          className="flex flex-col md:flex-row items-stretch"
+          variants={{
+            hidden: { opacity: 0 },
+            visible: {
+              opacity: 1,
+              transition: {
+                staggerChildren: 0.2,
+                delayChildren: 0.3,
+              },
+            },
+          }}
+          className="max-w-5xl mx-auto"
         >
-          <YearStats data={stats[0]} isOld={true} />
-          <VerticalDivider />
-          <YearStats data={stats[1]} />
+          <motion.h3
+            variants={fadeInUp}
+            className="text-2xl md:text-3xl font-bold text-center mb-10 text-white drop-shadow-md"
+          >
+            Placements {stats[0].year}
+          </motion.h3>
+
+          <motion.div className="grid grid-cols-1 md:grid-cols-3 gap-6 md:gap-8">
+            <StatCard
+              title="Placement Offers"
+              value={stats[0].offers}
+              suffix="+"
+              description={stats[0].description}
+            />
+            <StatCard title="Companies" value={stats[0].companies} suffix="+" />
+            <StatCard title="Highest CTC" value={stats[0].lpa} suffix=" LPA" />
+          </motion.div>
         </motion.div>
       </div>
     </motion.section>
