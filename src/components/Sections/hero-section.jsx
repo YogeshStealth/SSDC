@@ -266,8 +266,8 @@ export default function HeroSection() {
     e.preventDefault();
     setIsSubmitting(true);
 
-    if (validateForm()) {
-      try {
+    try {
+      if (validateForm()) {
         const response = await fetch(
           "https://stealthlearn.in/SSDC_api/submit_form.php",
           {
@@ -289,7 +289,6 @@ export default function HeroSection() {
         const result = await response.json();
 
         if (result.success) {
-          alert("Form submitted successfully!");
           // Reset form
           setFormData({
             name: "",
@@ -300,7 +299,10 @@ export default function HeroSection() {
             course: "",
           });
           setErrors({});
+          // Redirect to thank you page
+          window.location.href = "/thankyou.html";
         } else {
+          setIsSubmitting(false);
           // Handle specific error messages from backend
           if (result.message.includes("Missing required fields")) {
             const missingFields = result.message
@@ -325,14 +327,14 @@ export default function HeroSection() {
             alert(result.message || "Error submitting form");
           }
         }
-      } catch (error) {
-        console.error("Error:", error);
-        alert(
-          error.message || "Error submitting form. Please try again later."
-        );
+      } else {
+        setIsSubmitting(false);
       }
+    } catch (error) {
+      setIsSubmitting(false);
+      console.error("Error:", error);
+      alert(error.message || "Error submitting form. Please try again later.");
     }
-    setIsSubmitting(false);
   };
 
   return (
@@ -647,10 +649,38 @@ export default function HeroSection() {
                     type="submit"
                     disabled={isSubmitting}
                     className={`w-full !bg-orange-500 hover:!bg-orange-600 text-white rounded-lg py-4 transition-all duration-200 ${
-                      isSubmitting ? "opacity-50 cursor-not-allowed" : ""
+                      isSubmitting
+                        ? "opacity-50 cursor-not-allowed !bg-gray-400"
+                        : ""
                     }`}
                   >
-                    {isSubmitting ? "Submitting..." : "Submit Enquiry"}
+                    {isSubmitting ? (
+                      <div className="flex items-center justify-center">
+                        <svg
+                          className="animate-spin -ml-1 mr-3 h-5 w-5 text-white"
+                          xmlns="http://www.w3.org/2000/svg"
+                          fill="none"
+                          viewBox="0 0 24 24"
+                        >
+                          <circle
+                            className="opacity-25"
+                            cx="12"
+                            cy="12"
+                            r="10"
+                            stroke="currentColor"
+                            strokeWidth="4"
+                          ></circle>
+                          <path
+                            className="opacity-75"
+                            fill="currentColor"
+                            d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4zm2 5.291A7.962 7.962 0 014 12H0c0 3.042 1.135 5.824 3 7.938l3-2.647z"
+                          ></path>
+                        </svg>
+                        Submitting...
+                      </div>
+                    ) : (
+                      "Submit Enquiry"
+                    )}
                   </Button>
 
                   <p className="text-center text-gray-500 text-xs mt-2">

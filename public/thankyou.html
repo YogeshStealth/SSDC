@@ -1,0 +1,261 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <link rel="icon" type="image/svg+xml" href="/faviconlp.png" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Thank You - Planet Education</title>
+    <!-- Google Tag Manager -->
+    <script>
+      (function (w, d, s, l, i) {
+        w[l] = w[l] || [];
+        w[l].push({ "gtm.start": new Date().getTime(), event: "gtm.js" });
+        var f = d.getElementsByTagName(s)[0],
+          j = d.createElement(s),
+          dl = l != "dataLayer" ? "&l=" + l : "";
+        j.async = true;
+        j.src = "https://www.googletagmanager.com/gtm.js?id=" + i + dl;
+        f.parentNode.insertBefore(j, f);
+      })(window, document, "script", "dataLayer", "GTM-MHBL4G5");
+    </script>
+    <!-- End Google Tag Manager -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+      tailwind.config = {
+        theme: {
+          extend: {
+            colors: {
+              "brand-blue": "#CF2936",
+            },
+            animation: {
+              float: "float 6s ease-in-out infinite",
+              "fade-up": "fadeUp 0.8s ease-out forwards",
+            },
+            keyframes: {
+              float: {
+                "0%, 100%": { transform: "translateY(0)" },
+                "50%": { transform: "translateY(-20px)" },
+              },
+              fadeUp: {
+                "0%": { opacity: "0", transform: "translateY(20px)" },
+                "100%": { opacity: "1", transform: "translateY(0)" },
+              },
+            },
+          },
+        },
+      };
+    </script>
+  </head>
+  <body style="background-color: red" class="min-h-screen overflow-x-hidden">
+    <!-- Google Tag Manager (noscript) -->
+    <noscript
+      ><iframe
+        src="https://www.googletagmanager.com/ns.html?id=GTM-MHBL4G5"
+        height="0"
+        width="0"
+        style="display: none; visibility: hidden"
+      ></iframe
+    ></noscript>
+    <!-- End Google Tag Manager (noscript) -->
+    <!-- Background Decorative Elements -->
+    <div class="fixed inset-0 overflow-hidden pointer-events-none">
+      <!-- Abstract Shapes -->
+      <svg
+        class="absolute top-0 right-0 w-96 h-96 text-white/5"
+        viewBox="0 0 200 200"
+      >
+        <path
+          fill="currentColor"
+          d="M45,-76.9C54.9,-69.3,57.2,-49.7,64.1,-32.8C71,-15.9,82.5,-1.7,82.9,12.7C83.3,27,72.5,41.5,60.2,52.4C47.9,63.3,34,70.6,18.4,74.8C2.8,78.9,-14.5,79.9,-31.9,76.1C-49.3,72.2,-66.8,63.5,-76.5,49.3C-86.2,35,-88,15.3,-85.6,-3.5C-83.1,-22.3,-76.3,-40.2,-63.3,-48.8C-50.3,-57.4,-31.1,-56.8,-15.3,-62.5C0.5,-68.2,13,-84.2,29.8,-85.9C46.7,-87.6,67.9,-75,45,-76.9Z"
+          transform="translate(100 100)"
+        />
+      </svg>
+
+      <!-- Floating Circles -->
+      <div
+        class="absolute left-10 top-40 w-20 h-20 bg-white/10 rounded-full animate-float"
+      ></div>
+      <div
+        class="absolute right-20 bottom-40 w-16 h-16 bg-white/5 rounded-full animate-float"
+        style="animation-delay: -2s"
+      ></div>
+    </div>
+
+    <!-- Main Content Container -->
+    <div
+      class="relative min-h-screen flex flex-col items-start justify-center p-5"
+    >
+      <!-- Logo and Badge Container -->
+      <div class="flex items-center justify-start">
+        <!-- Planet Education Logo SVG -->
+        <img
+          class="w-[250px] mb-8 top-0 left-0"
+          src="./ssdcLogo.svg"
+          alt="SSDCH Logo"
+        />
+      </div>
+
+      <!-- Main Content -->
+      <div class="text-center max-w-4xl mx-auto">
+        <!-- Success Illustration -->
+        <div class="relative">
+          <!-- Decorative Ring -->
+          <svg
+            class="absolute inset-0 w-full h-full animate-spin-slow"
+            viewBox="0 0 200 200"
+          >
+            <defs>
+              <linearGradient id="gradient" x1="0%" y1="0%" x2="100%" y2="0%">
+                <stop
+                  offset="0%"
+                  style="stop-color: #ffffff; stop-opacity: 0.2"
+                />
+                <stop
+                  offset="100%"
+                  style="stop-color: #ffffff; stop-opacity: 0.05"
+                />
+              </linearGradient>
+            </defs>
+            <circle
+              cx="100"
+              cy="100"
+              r="90"
+              stroke="url(#gradient)"
+              stroke-width="2"
+              fill="none"
+            />
+          </svg>
+
+          <!-- Success Check Animation -->
+          <div
+            class="relative z-10 transform transition-all duration-700 animate-bounce-subtle"
+          >
+            <svg class="w-32 h-32 mx-auto" viewBox="0 0 100 100" fill="none">
+              <circle
+                cx="50"
+                cy="50"
+                r="45"
+                stroke="white"
+                stroke-width="5"
+                class="opacity-20"
+              />
+              <path
+                class="check"
+                d="M30 50l15 15 25-25"
+                stroke="white"
+                stroke-width="5"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+              />
+            </svg>
+          </div>
+        </div>
+
+        <!-- Text Content -->
+        <div class="space-y-6 animate-fade-up">
+          <h1 class="text-6xl font-bold text-white mb-6">Thank You!</h1>
+
+          <p class="text-xl text-white/90 leading-relaxed">
+            Your registration was successful.
+            <br />
+            We will get in touch with you soon.
+          </p>
+
+          <!-- Info Cards -->
+          <div class="grid md:grid-cols-2 gap-6 mt-10">
+            <!-- Check Our Website Card -->
+            <a
+              href="https://ssdc.ac.in/"
+              target="_blank"
+              class="bg-white/10 backdrop-blur-md rounded-2xl p-6 text-white transform hover:scale-105 transition-transform"
+            >
+              <svg
+                class="w-12 h-12 mx-auto mb-4"
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="currentColor"
+              >
+                <path
+                  d="M3 12l2-2m0 0l7-7 7 7M5 10v10a1 1 0 001 1h3m10-11l2 2m-2-2v10a1 1 0 01-1 1h-3m-6 0a1 1 0 001-1v-4a1 1 0 011-1h2a1 1 0 011 1v4a1 1 0 001 1m-6 0h6"
+                  stroke-width="2"
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                />
+              </svg>
+              <h3 class="text-lg font-semibold mb-2">Check Our Website</h3>
+              <p class="text-sm text-white/80">
+                Visit our website for more information
+                <br />
+                about courses and upcoming events.
+              </p>
+            </a>
+
+            <!-- Next Steps Card -->
+            <div
+              class="bg-white/10 backdrop-blur-md rounded-2xl p-6 text-white transform hover:scale-105 transition-transform"
+            >
+              <svg
+                class="w-12 h-12 mx-auto mb-4"
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="currentColor"
+              >
+                <path
+                  d="M9 5H7a2 2 0 00-2 2v12a2 2 0 002 2h10a2 2 0 002-2V7a2 2 0 00-2-2h-2M9 5a2 2 0 002 2h2a2 2 0 002-2M9 5a2 2 0 012-2h2a2 2 0 012 2m-6 9l2 2 4-4"
+                  stroke-width="2"
+                />
+              </svg>
+              <h3 class="text-lg font-semibold mb-2">Next Steps</h3>
+              <p class="text-sm text-white/80">
+                Our team will review your application
+                <br />
+                and contact you within 24 hours.
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Footer -->
+      <div class="text-white/60 self-center mt-16 text-sm">
+        <p>© 2025 Siva Sivani Degree College. All rights reserved.</p>
+      </div>
+    </div>
+
+    <style>
+      @keyframes spin-slow {
+        from {
+          transform: rotate(0deg);
+        }
+        to {
+          transform: rotate(360deg);
+        }
+      }
+      .animate-spin-slow {
+        animation: spin-slow 20s linear infinite;
+      }
+      @keyframes bounce-subtle {
+        0%,
+        100% {
+          transform: translateY(0);
+        }
+        50% {
+          transform: translateY(-10px);
+        }
+      }
+      .animate-bounce-subtle {
+        animation: bounce-subtle 3s ease-in-out infinite;
+      }
+      .check {
+        stroke-dasharray: 100;
+        stroke-dashoffset: 100;
+        animation: draw 1s ease forwards;
+      }
+      @keyframes draw {
+        to {
+          stroke-dashoffset: 0;
+        }
+      }
+    </style>
+  </body>
+</html>
