@@ -535,7 +535,7 @@ export default function HeroSection() {
 
                   {/* City Field */}
                   <div className="space-y-1">
-                    <Label htmlFor="city" className="text-gray-700 text-sm">
+                    <Label htmlFor="city" className="!text-gray-700 !text-sm">
                       Select City *
                     </Label>
                     <Select
@@ -545,8 +545,8 @@ export default function HeroSection() {
                       value={formData.city}
                     >
                       <SelectTrigger
-                        className={`w-full rounded-lg border-gray-200 text-gray-900 placeholder:text-gray-400 h-9 bg-white hover:bg-white focus:bg-white ${
-                          errors.city ? "border-red-500" : ""
+                        className={`w-full rounded-lg !border-gray-200 !text-gray-900 placeholder:text-gray-400 h-9 !bg-white !hover:bg-white !focus:bg-white ${
+                          errors.city ? "!border-red-500" : ""
                         }`}
                       >
                         <SelectValue placeholder="Select your city" />
