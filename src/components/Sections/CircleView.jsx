@@ -97,7 +97,7 @@ export default function CircleView() {
   return (
     <div className="relative w-full max-w-3xl mx-auto lg:pt-8">
       <div className="text-center mb-12">
-        <Heading size="lg" className="mb-4 !text-blue-900">
+        <Heading size="lg" className="mb-4 pt-12 md:pt-4 !text-blue-900">
           What Sets <span className="text-orange-500">SSDCH Apart</span>
         </Heading>
       </div>
