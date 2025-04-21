@@ -56,7 +56,7 @@ const LogoSlider = ({ className = "" }) => {
       whileInView="visible"
       viewport={{ once: true, margin: "-100px" }}
       variants={fadeInUp}
-      className={`!w-full !py-20 !mt-2 !bg-gray-200 dark:!bg-gray-900 ${className}`}
+      className={`!w-full !py-20 !mt-2 !bg-gray-200  ${className}`}
     >
       <div className="!container !mx-auto !px-4">
         <motion.div variants={fadeInUp} className="!text-center !mb-16">
