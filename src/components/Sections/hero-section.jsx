@@ -545,7 +545,7 @@ export default function HeroSection() {
                       value={formData.city}
                     >
                       <SelectTrigger
-                        className={`w-full rounded-lg border-gray-200 text-gray-900 placeholder:text-gray-400 h-9 ${
+                        className={`w-full rounded-lg border-gray-200 text-gray-900 placeholder:text-gray-400 h-9 bg-white ${
                           errors.city ? "border-red-500" : ""
                         }`}
                       >
@@ -556,7 +556,7 @@ export default function HeroSection() {
                           <SelectItem
                             key={city}
                             value={city}
-                            className="hover:bg-gray-100 text-gray-900"
+                            className="hover:bg-gray-100 text-gray-900 bg-white"
                           >
                             {city}
                           </SelectItem>
@@ -580,7 +580,7 @@ export default function HeroSection() {
                       value={formData.stream}
                     >
                       <SelectTrigger
-                        className={`w-full rounded-lg border-gray-200 text-gray-900 placeholder:text-gray-400 h-9 ${
+                        className={`w-full rounded-lg border-gray-200 text-gray-900 placeholder:text-gray-400 h-9 bg-white ${
                           errors.stream ? "border-red-500" : ""
                         }`}
                       >
@@ -591,7 +591,7 @@ export default function HeroSection() {
                           <SelectItem
                             key={stream}
                             value={stream}
-                            className="hover:bg-gray-100 text-gray-900"
+                            className="hover:bg-gray-100 text-gray-900 bg-white"
                           >
                             {stream}
                           </SelectItem>
@@ -616,7 +616,7 @@ export default function HeroSection() {
                       disabled={!formData.stream}
                     >
                       <SelectTrigger
-                        className={`w-full rounded-lg border-gray-200 text-gray-900 placeholder:text-gray-400 h-9 ${
+                        className={`w-full rounded-lg border-gray-200 text-gray-900 placeholder:text-gray-400 h-9 bg-white ${
                           errors.course ? "border-red-500" : ""
                         }`}
                       >
@@ -626,16 +626,28 @@ export default function HeroSection() {
                               ? "Select your course"
                               : "First select a stream"
                           }
-                        />
+                        >
+                          <span
+                            className="truncate max-w-[200px] block"
+                            title={formData.course}
+                          >
+                            {formData.course}
+                          </span>
+                        </SelectValue>
                       </SelectTrigger>
-                      <SelectContent className="bg-white border rounded-lg shadow-lg">
+                      <SelectContent className="bg-white border rounded-lg shadow-lg w-[200px]">
                         {courseOptions.map((course) => (
                           <SelectItem
                             key={course}
                             value={course}
-                            className="hover:bg-gray-100 text-gray-900"
+                            className="hover:bg-gray-100 text-gray-900 bg-white"
                           >
-                            {course}
+                            <span
+                              className="truncate max-w-[180px] block"
+                              title={course}
+                            >
+                              {course}
+                            </span>
                           </SelectItem>
                         ))}
                       </SelectContent>
