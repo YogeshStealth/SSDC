@@ -129,7 +129,7 @@
 
 /* Custom styles for form elements */
 .form-select {
-  @apply bg-white text-gray-900 border-gray-200;
+  @apply bg-white text-slate-900 border-slate-200;
 }
 
 .form-select:hover {
@@ -137,36 +137,36 @@
 }
 
 .form-select:focus {
-  @apply bg-white text-gray-900;
+  @apply bg-white text-slate-900;
 }
 
 .form-select-option {
-  @apply bg-white text-gray-900;
+  @apply bg-white text-slate-900;
 }
 
 .form-select-option:hover {
-  @apply bg-gray-100;
+  @apply bg-slate-100;
 }
 
 .form-select-option:focus {
-  @apply bg-white text-gray-900;
+  @apply bg-white text-slate-900;
 }
 
 /* Force styles to take precedence */
 [data-theme="light"] .form-select,
 [data-theme="light"] .form-select-option {
   background-color: white !important;
-  color: rgb(17, 24, 39) !important;
-  border-color: rgb(229, 231, 235) !important;
+  color: rgb(15, 23, 42) !important;
+  border-color: rgb(226, 232, 240) !important;
 }
 
 [data-theme="light"] .form-select:hover,
 [data-theme="light"] .form-select-option:hover {
-  background-color: rgb(243, 244, 246) !important;
+  background-color: rgb(241, 245, 249) !important;
 }
 
 [data-theme="light"] .form-select:focus,
 [data-theme="light"] .form-select-option:focus {
   background-color: white !important;
-  color: rgb(17, 24, 39) !important;
+  color: rgb(15, 23, 42) !important;
 }
