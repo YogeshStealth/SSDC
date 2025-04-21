@@ -1,6 +1,6 @@
 "use client";
 
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import {
   BookOpen,
   Code,
@@ -41,6 +41,16 @@ const staggerContainer = {
 export default function ProgramTabs() {
   const [activeTab, setActiveTab] = useState("management");
   const [currentSlide, setCurrentSlide] = useState(0);
+
+  // Add auto-sliding functionality
+  useEffect(() => {
+    const interval = setInterval(() => {
+      const maxSlides = programContent[activeTab].programs.length - 1;
+      setCurrentSlide((current) => (current < maxSlides ? current + 1 : 0));
+    }, 3000); // Change slide every 5 seconds
+
+    return () => clearInterval(interval); // Cleanup on unmount or tab change
+  }, [activeTab]); // Reset interval when tab changes
 
   const tabs = [
     {

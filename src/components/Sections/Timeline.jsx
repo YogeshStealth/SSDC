@@ -88,7 +88,7 @@ export default function Timeline() {
       whileInView="visible"
       viewport={{ once: true, margin: "-100px" }}
       variants={fadeInUp}
-      className="w-full bg-gray-50 pb-40 pt-12"
+      className="w-full bg-gray-50 pb-12 md:pb-40 pt-12"
     >
       <div className="container mx-auto px-4">
         <motion.div variants={fadeInUp} className="text-center mb-20">
