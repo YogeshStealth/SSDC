@@ -159,7 +159,7 @@ const PlacementStats = ({ className = "" }) => {
       whileInView="visible"
       viewport={{ once: true, margin: "-100px" }}
       variants={fadeInUp}
-      className={`w-full py-24 relative ${className}`}
+      className={`!w-full !py-20 !bg-white dark:!bg-gray-900 ${className}`}
       style={{
         backgroundImage: `url(${backgroundImage})`,
         backgroundSize: "cover",
@@ -176,18 +176,18 @@ const PlacementStats = ({ className = "" }) => {
         className="absolute inset-0 bg-gradient-to-br from-blue-900/40 via-blue-800/30 to-blue-900/40"
       />
 
-      <div className="container mx-auto px-4 relative z-10">
-        <motion.div variants={fadeInUp} className="text-center mb-16">
-          <Heading size="lg" className="mb-4 text-white drop-shadow-lg">
-            Our Placement <span className="text-orange-500">Statistics</span>
+      <div className="!container !mx-auto !px-4 relative z-10">
+        <motion.div variants={fadeInUp} className="!text-center !mb-16">
+          <Heading size="lg" className="!mb-4 text-white drop-shadow-lg">
+            Our <span className="!text-orange-500">Placement</span> Statistics
           </Heading>
           <motion.p
-            className="text-xl text-gray-100 max-w-2xl mx-auto"
+            className="!text-xl !text-gray-100 max-w-2xl mx-auto"
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ delay: 0.2 }}
           >
-            Track record of successful placements and career opportunities
+            Impressive numbers that speak for themselves
           </motion.p>
         </motion.div>
 

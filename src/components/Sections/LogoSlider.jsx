@@ -5,7 +5,7 @@ import zomatoLogo from "@/assets/placement-logos/zamoto.png";
 import zudioLogo from "@/assets/placement-logos/zudio.png";
 import profectusLogo from "@/assets/placement-logos/profectus-capital.png";
 import nestleLogo from "@/assets/placement-logos/nestle.png";
-  import oxaneLogo from "@/assets/placement-logos/oxane.png";
+import oxaneLogo from "@/assets/placement-logos/oxane.png";
 import metricsLogo from "@/assets/placement-logos/metrics.png";
 import mePlusLogo from "@/assets/placement-logos/me-plus.png";
 import kpmgLogo from "@/assets/placement-logos/kpmg.png";
@@ -56,25 +56,25 @@ const LogoSlider = ({ className = "" }) => {
       whileInView="visible"
       viewport={{ once: true, margin: "-100px" }}
       variants={fadeInUp}
-      className={`w-full py-20 mt-2 bg-gray-200 dark:bg-gray-900 ${className}`}
+      className={`!w-full !py-20 !mt-2 !bg-gray-200 dark:!bg-gray-900 ${className}`}
     >
-      <div className="container mx-auto px-4">
-        <motion.div variants={fadeInUp} className="text-center mb-16">
-          <Heading size="lg" className="mb-4">
-            Some of Our <span className="text-orange-500">Major</span>{" "}
+      <div className="!container !mx-auto !px-4">
+        <motion.div variants={fadeInUp} className="!text-center !mb-16">
+          <Heading size="lg" className="!mb-4">
+            Some of Our <span className="!text-orange-500">Major</span>{" "}
             Recruiters
           </Heading>
-          <p className="text-lg text-gray-600 dark:text-gray-300">
+          <p className="!text-lg !text-gray-600 dark:!text-gray-300">
             We are proud to partner with leading companies across industries
           </p>
         </motion.div>
 
         <motion.div
           variants={scaleIn}
-          className="relative w-full overflow-hidden"
+          className="!relative !w-full !overflow-hidden"
         >
           <motion.div
-            className="flex animate-marquee"
+            className="!flex !animate-marquee"
             initial={{ x: 0 }}
             animate={{ x: "-50%" }}
             transition={{
@@ -87,7 +87,7 @@ const LogoSlider = ({ className = "" }) => {
               <motion.div
                 key={`${logo.alt}-${index}`}
                 whileHover={{ scale: 1.1 }}
-                className="flex-shrink-0 mx-4 md:mx-8"
+                className="!flex-shrink-0 !mx-4 md:!mx-8"
               >
                 <motion.img
                   src={logo.src}
@@ -97,7 +97,7 @@ const LogoSlider = ({ className = "" }) => {
                     filter: "grayscale(0%)",
                     transition: { duration: 0.3 },
                   }}
-                  className="h-16 md:h-20 w-auto object-contain grayscale"
+                  className="!h-16 md:!h-20 !w-auto !object-contain !grayscale"
                 />
               </motion.div>
             ))}
@@ -106,7 +106,7 @@ const LogoSlider = ({ className = "" }) => {
               <motion.div
                 key={`${logo.alt}-${index}-duplicate`}
                 whileHover={{ scale: 1.1 }}
-                className="flex-shrink-0 mx-4 md:mx-8"
+                className="!flex-shrink-0 !mx-4 md:!mx-8"
               >
                 <motion.img
                   src={logo.src}
@@ -116,7 +116,7 @@ const LogoSlider = ({ className = "" }) => {
                     filter: "grayscale(0%)",
                     transition: { duration: 0.3 },
                   }}
-                  className="h-16 md:h-20 w-auto object-contain grayscale"
+                  className="!h-16 md:!h-20 !w-auto !object-contain !grayscale"
                 />
               </motion.div>
             ))}

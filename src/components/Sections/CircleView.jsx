@@ -95,25 +95,25 @@ export default function CircleView() {
   const [activeCard, setActiveCard] = useState(null);
 
   return (
-    <div className="relative w-full max-w-3xl mx-auto lg:pt-8">
-      <div className="text-center mb-12">
-        <Heading size="lg" className="mb-4 pt-12 md:pt-4 !text-blue-900">
-          What Sets <span className="text-orange-500">SSDCH Apart</span>
+    <div className="!relative !w-full !max-w-3xl !mx-auto lg:!pt-8">
+      <div className="!text-center !mb-12">
+        <Heading size="lg" className="!mb-4 !pt-12 md:!pt-4 !text-blue-900">
+          What Sets <span className="!text-orange-500">SSDCH Apart</span>
         </Heading>
       </div>
 
       {/* Desktop View - Circle */}
-      <div className="hidden lg:block">
+      <div className="!hidden lg:!block">
         <div
-          className="relative aspect-square"
+          className="!relative !aspect-square"
           onMouseEnter={() => setIsHovering(true)}
           onMouseLeave={() => setIsHovering(false)}
         >
           <svg
             viewBox="-300 -300 600 600"
             className={cn(
-              "w-full h-full transition-transform duration-700 ease-in-out",
-              isHovering ? "rotate-[360deg]" : ""
+              "!w-full !h-full !transition-transform !duration-700 !ease-in-out",
+              isHovering ? "!rotate-[360deg]" : ""
             )}
           >
             {/* Segments */}
@@ -187,18 +187,18 @@ export default function CircleView() {
           </svg>
 
           {/* Center text */}
-          <div className="absolute inset-0 flex flex-col items-center justify-center pointer-events-none">
-            <div className="text-center">
+          <div className="!absolute !inset-0 !flex !flex-col !items-center !justify-center !pointer-events-none">
+            <div className="!text-center">
               <img
                 src="https://ssdc.ac.in/wp-content/uploads/2023/03/Logo-icon.svg"
                 alt="logo"
-                className="w-32 h-32"
+                className="!w-32 !h-32"
               />
             </div>
           </div>
 
           {/* Text descriptions */}
-          <div className="absolute inset-0 pointer-events-none">
+          <div className="!absolute !inset-0 !pointer-events-none">
             {items.map((item) => {
               // Convert angle to radians
               const angleRad = (item.angle * Math.PI) / 180;
@@ -223,7 +223,7 @@ export default function CircleView() {
               return (
                 <div
                   key={`text-${item.id}`}
-                  className="absolute max-w-[250px] text-sm"
+                  className="!absolute !max-w-[250px] !text-sm"
                   style={{
                     left: `calc(50% + ${x}px)`,
                     top: `calc(50% + ${y}px)`,
@@ -231,7 +231,7 @@ export default function CircleView() {
                     textAlign: textAlign,
                   }}
                 >
-                  <div className="font-medium text-lg">
+                  <div className="!font-medium !text-lg">
                     {item.boldTitle ? (
                       <strong>{item.title}</strong>
                     ) : (
@@ -255,7 +255,7 @@ export default function CircleView() {
 
       {/* Mobile View - Cards */}
       <motion.div
-        className="lg:hidden px-4 py-8 space-y-6"
+        className="lg:!hidden !px-4 !py-8 !space-y-6"
         variants={containerVariants}
         initial="hidden"
         whileInView="visible"
@@ -274,7 +274,7 @@ export default function CircleView() {
             onHoverEnd={() => setActiveCard(null)}
           >
             <motion.div
-              className={`${item.color} p-6 rounded-xl shadow-lg text-white overflow-hidden relative`}
+              className={`${item.color} !p-6 !rounded-xl !shadow-lg !text-white !overflow-hidden !relative`}
               animate={{
                 boxShadow:
                   activeCard === index
@@ -283,20 +283,20 @@ export default function CircleView() {
               }}
             >
               <motion.div
-                className="absolute inset-0 bg-white/10 opacity-0"
+                className="!absolute !inset-0 !bg-white/10 !opacity-0"
                 animate={{ opacity: activeCard === index ? 1 : 0 }}
                 transition={{ duration: 0.2 }}
               />
-              <div className="flex items-start gap-4 relative z-10">
+              <div className="!flex !items-start !gap-4 !relative !z-10">
                 <motion.div
-                  className="w-12 h-12 rounded-full bg-white/20 flex items-center justify-center text-xl font-bold flex-shrink-0"
+                  className="!w-12 !h-12 !rounded-full !bg-white/20 !flex !items-center !justify-center !text-xl !font-bold !flex-shrink-0"
                   variants={numberVariants}
                 >
                   {item.id}
                 </motion.div>
-                <div className="flex-1">
+                <div className="!flex-1">
                   <motion.h3
-                    className="text-xl font-bold mb-2"
+                    className="!text-xl !font-bold !mb-2"
                     whileHover={{ x: 5 }}
                     transition={{ type: "spring", stiffness: 400 }}
                   >
@@ -307,7 +307,7 @@ export default function CircleView() {
                     )}
                   </motion.h3>
                   <motion.p
-                    className="text-base text-white/90"
+                    className="!text-base !text-white/90"
                     initial={{ opacity: 0.8 }}
                     whileHover={{ opacity: 1 }}
                   >
@@ -318,7 +318,7 @@ export default function CircleView() {
                     )}
                     {item.additionalText && (
                       <motion.span
-                        className="block mt-2 text-white/80"
+                        className="!block !mt-2 !text-white/80"
                         whileHover={{ opacity: 1 }}
                       >
                         {item.additionalText}

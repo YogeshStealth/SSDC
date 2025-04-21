@@ -158,21 +158,20 @@ export default function ProgramTabs() {
   };
 
   return (
-    <div className="w-full py-20 bg-gray-200 dark:bg-gray-900">
-      <div className="container mx-auto px-4">
-        <motion.div
-          initial="hidden"
-          whileInView="visible"
-          viewport={{ once: false, margin: "-100px" }}
-          variants={fadeInUp}
-          className="text-center mb-16"
-        >
-          <Heading size="lg" className="mb-4">
-            Our Academic <span className="text-orange-500">Programs</span>
+    <motion.section
+      initial="hidden"
+      whileInView="visible"
+      viewport={{ once: true, margin: "-100px" }}
+      variants={fadeInUp}
+      className={`!w-full !py-20 !bg-white dark:!bg-gray-900`}
+    >
+      <div className="!container !mx-auto !px-4">
+        <motion.div variants={fadeInUp} className="!text-center !mb-16">
+          <Heading size="lg" className="!mb-4">
+            Our <span className="!text-orange-500">Programs</span>
           </Heading>
-          <p className="text-lg text-gray-600 dark:text-gray-300">
-            Discover our comprehensive range of programs designed to prepare you
-            for successful careers in Management, Science, and Commerce.
+          <p className="!text-lg !text-gray-600 dark:!text-gray-300">
+            Choose from our diverse range of programs
           </p>
         </motion.div>
 
@@ -337,6 +336,6 @@ export default function ProgramTabs() {
           ))}
         </motion.div>
       </div>
-    </div>
+    </motion.section>
   );
 }
