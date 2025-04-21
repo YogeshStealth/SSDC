@@ -483,7 +483,7 @@ export default function HeroSection() {
                       value={formData.name}
                       onChange={handleChange}
                       placeholder="Enter your full name"
-                      className={`rounded-lg border-gray-200 h-9 ${
+                      className={`rounded-lg border-gray-200 h-9 text-gray-900 placeholder:text-gray-400 ${
                         errors.name ? "border-red-500" : ""
                       }`}
                     />
@@ -504,7 +504,7 @@ export default function HeroSection() {
                       value={formData.email}
                       onChange={handleChange}
                       placeholder="Enter your email address"
-                      className={`rounded-lg border-gray-200 h-9 ${
+                      className={`rounded-lg border-gray-200 h-9 text-gray-900 placeholder:text-gray-400 ${
                         errors.email ? "border-red-500" : ""
                       }`}
                     />
@@ -524,7 +524,7 @@ export default function HeroSection() {
                       value={formData.phone}
                       onChange={handleChange}
                       placeholder="Enter your 10-digit phone number"
-                      className={`rounded-lg border-gray-200 h-9 ${
+                      className={`rounded-lg border-gray-200 h-9 text-gray-900 placeholder:text-gray-400 ${
                         errors.phone ? "border-red-500" : ""
                       }`}
                     />
@@ -545,7 +545,7 @@ export default function HeroSection() {
                       value={formData.city}
                     >
                       <SelectTrigger
-                        className={`w-full rounded-lg border-gray-200 text-gray-500 h-9 ${
+                        className={`w-full rounded-lg border-gray-200 text-gray-900 placeholder:text-gray-400 h-9 ${
                           errors.city ? "border-red-500" : ""
                         }`}
                       >
@@ -556,7 +556,7 @@ export default function HeroSection() {
                           <SelectItem
                             key={city}
                             value={city}
-                            className="hover:bg-gray-100"
+                            className="hover:bg-gray-100 text-gray-900"
                           >
                             {city}
                           </SelectItem>
@@ -580,7 +580,7 @@ export default function HeroSection() {
                       value={formData.stream}
                     >
                       <SelectTrigger
-                        className={`w-full rounded-lg border-gray-200 text-gray-500 h-9 ${
+                        className={`w-full rounded-lg border-gray-200 text-gray-900 placeholder:text-gray-400 h-9 ${
                           errors.stream ? "border-red-500" : ""
                         }`}
                       >
@@ -591,7 +591,7 @@ export default function HeroSection() {
                           <SelectItem
                             key={stream}
                             value={stream}
-                            className="hover:bg-gray-100"
+                            className="hover:bg-gray-100 text-gray-900"
                           >
                             {stream}
                           </SelectItem>
@@ -616,7 +616,7 @@ export default function HeroSection() {
                       disabled={!formData.stream}
                     >
                       <SelectTrigger
-                        className={`w-full rounded-lg border-gray-200 text-gray-500 h-9 ${
+                        className={`w-full rounded-lg border-gray-200 text-gray-900 placeholder:text-gray-400 h-9 ${
                           errors.course ? "border-red-500" : ""
                         }`}
                       >
@@ -633,7 +633,7 @@ export default function HeroSection() {
                           <SelectItem
                             key={course}
                             value={course}
-                            className="hover:bg-gray-100"
+                            className="hover:bg-gray-100 text-gray-900"
                           >
                             {course}
                           </SelectItem>
