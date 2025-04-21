@@ -1,96 +1,5 @@
-@import "tailwindcss";
-
-:root {
-  font-family: system-ui, Avenir, Helvetica, Arial, sans-serif;
-  line-height: 1.5;
-  font-weight: 400;
-
-  color-scheme: light dark;
-  color: rgba(255, 255, 255, 0.87);
-  background-color: #242424;
-
-  font-synthesis: none;
-  text-rendering: optimizeLegibility;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-}
-
-a {
-  font-weight: 500;
-  color: #646cff;
-  text-decoration: inherit;
-}
-a:hover {
-  color: #535bf2;
-}
-
-button {
-  border-radius: 8px;
-  border: 1px solid transparent;
-  padding: 0.6em 1.2em;
-  font-size: 1em;
-  font-weight: 500;
-  font-family: inherit;
-  background-color: #1a1a1a;
-  cursor: pointer;
-  transition: border-color 0.25s;
-}
-button:hover {
-  border-color: #646cff;
-}
-button:focus,
-button:focus-visible {
-  outline: 4px auto -webkit-focus-ring-color;
-}
-
-@media (prefers-color-scheme: light) {
-  :root {
-    color: #213547;
-    background-color: #ffffff;
-  }
-  a:hover {
-    color: #747bff;
-  }
-  button {
-    background-color: #f9f9f9;
-  }
-}
-
-/* Marquee Animations */
-@keyframes marquee {
-  0% {
-    transform: translateX(0);
-  }
-  100% {
-    transform: translateX(-50%);
-  }
-}
-
-.animate-marquee {
-  animation: marquee 30s linear infinite;
-  will-change: transform;
-  animation-timing-function: linear;
-  animation-iteration-count: infinite;
-  animation-fill-mode: forwards;
-  backface-visibility: hidden;
-  transform-style: preserve-3d;
-  -webkit-transform-style: preserve-3d;
-  -webkit-backface-visibility: hidden;
-}
-
-.animate-marquee:hover {
-  animation-play-state: paused;
-}
-
-@media (max-width: 768px) {
-  .animate-marquee {
-    animation-duration: 30s;
-  }
-}
-
-@tailwind base;
-@tailwind components;
-@tailwind utilities;
+@import "tailwindcss/preflight";
+@import "tailwindcss/utilities";
 
 @layer base {
   :root {
@@ -141,61 +50,79 @@ button:focus-visible {
 
 @layer utilities {
   .text-primary-important {
-    @apply text-blue-900 !important;
+    @apply text-blue-900;
   }
 
   .bg-primary-important {
-    @apply bg-blue-900 !important;
+    @apply bg-blue-900;
   }
 
   .text-orange-important {
-    @apply text-orange-500 !important;
+    @apply text-orange-500;
   }
 
   .bg-orange-important {
-    @apply bg-orange-500 !important;
+    @apply bg-orange-500;
   }
 
   .text-white-important {
-    @apply text-white !important;
+    @apply text-white;
   }
 
   .bg-white-important {
-    @apply bg-white !important;
+    @apply bg-white;
   }
 
   .text-gray-important {
-    @apply text-gray-900 !important;
+    @apply text-gray-900;
   }
 
   .bg-gray-important {
-    @apply bg-gray-100 !important;
+    @apply bg-gray-100;
   }
 
   .border-gray-important {
-    @apply border-gray-200 !important;
+    @apply border-gray-200;
   }
 }
 
 /* Override shadcn/ui styles */
 [data-theme="light"] {
-  --background: 0 0% 100% !important;
-  --foreground: 222.2 84% 4.9% !important;
-  --primary: 221.2 83.2% 53.3% !important;
-  --primary-foreground: 210 40% 98% !important;
+  --background: 0 0% 100%;
+  --foreground: 222.2 84% 4.9%;
+  --primary: 221.2 83.2% 53.3%;
+  --primary-foreground: 210 40% 98%;
 }
 
 /* Ensure our custom styles take precedence */
 @layer components {
   .custom-select {
-    @apply bg-white-important text-gray-important border-gray-important;
+    @apply bg-white text-gray-900 border-gray-200;
   }
 
   .custom-button {
-    @apply bg-orange-important text-white-important hover:bg-orange-600 !important;
+    @apply bg-orange-500 text-white hover:bg-orange-600;
   }
 
   .custom-input {
-    @apply bg-white-important text-gray-important border-gray-important;
+    @apply bg-white text-gray-900 border-gray-200;
   }
+}
+
+/* Add important declarations using CSS */
+.text-primary-important,
+.bg-primary-important,
+.text-orange-important,
+.bg-orange-important,
+.text-white-important,
+.bg-white-important,
+.text-gray-important,
+.bg-gray-important,
+.border-gray-important,
+.custom-select,
+.custom-button,
+.custom-input {
+  color: inherit !important;
+  background-color: inherit !important;
+  border-color: inherit !important;
 }
