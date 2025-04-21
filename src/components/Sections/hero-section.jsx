@@ -338,56 +338,56 @@ export default function HeroSection() {
   };
 
   return (
-    <div className="relative min-h-screen overflow-hidden">
+    <div className="relative !min-h-screen !overflow-hidden">
       {/* Background image */}
-      <div className="absolute inset-0">
+      <div className="!absolute !inset-0">
         <img
           src={bgImage}
           alt="Modern Campus"
-          className="w-full h-full object-cover"
+          className="!w-full !h-full !object-cover"
         />
-        <div className="absolute inset-0 bg-blue-900/80"></div>
+        <div className="!absolute !inset-0 !bg-blue-900/80"></div>
       </div>
 
-      <div className="container max-w-[1366px] mx-auto py-12 relative z-10 overflow-hidden">
+      <div className="!container !max-w-[1366px] !mx-auto !py-12 !relative !z-10 !overflow-hidden">
         {/* Top bar with logo and tagline */}
-        <div className="flex justify-between items-center mb-16 px-6 md:px-0">
-          <div className="flex items-center">
+        <div className="!flex !justify-between !items-center !mb-16 !px-6 md:!px-0">
+          <div className="!flex !items-center">
             <img
               src="/ssdcLogo.svg"
               alt="Siva Sivani Degree College Logo"
-              className="h-8 md:h-12 w-auto"
+              className="!h-8 md:!h-12 !w-auto"
             />
           </div>
-          <div className="block">
+          <div className="!block">
             <motion.a
               href="tel:+919849860865"
               initial={{ opacity: 0, y: -10 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.5 }}
-              className="inline-flex items-center px-4 py-2 bg-orange-500 hover:bg-orange-600 text-white rounded-full transition-all duration-300 group"
+              className="!inline-flex !items-center !px-4 !py-2 !bg-orange-500 hover:!bg-orange-600 !text-white !rounded-full !transition-all !duration-300 !group"
             >
-              <Phone className="h-4 w-4 mr-2 animate-bounce text-white" />
-              <span className="font-medium text-white">Call Us Now</span>
+              <Phone className="!h-4 !w-4 !mr-2 !animate-bounce !text-white" />
+              <span className="!font-medium !text-white">Call Us Now</span>
             </motion.a>
           </div>
         </div>
 
         {/* Main content */}
-        <div className="grid lg:grid-cols-12 gap-8 items-center">
+        <div className="!grid lg:!grid-cols-12 !gap-8 !items-center">
           {/* Left content - 7 columns */}
-          <div className="lg:col-span-7 space-y-8 text-center lg:text-left">
-            <div className="relative">
-              <div className="absolute -left-4 top-0 bottom-0 w-1 bg-orange-500 hidden lg:block"></div>
+          <div className="lg:!col-span-7 !space-y-8 !text-center lg:!text-left">
+            <div className="!relative">
+              <div className="!absolute -!left-4 !top-0 !bottom-0 !w-1 !bg-orange-500 !hidden lg:!block"></div>
               <motion.h1
                 initial="hidden"
                 whileInView="visible"
                 viewport={{ once: true, margin: "0px" }}
                 variants={fadeInLeft}
-                className="text-4xl md:text-5xl lg:text-6xl font-bold text-white mb-6"
+                className="!text-4xl md:!text-5xl lg:!text-6xl !font-bold !text-white !mb-6"
               >
                 Shape Your Future with{" "}
-                <span className="text-orange-400">Quality Education</span>
+                <span className="!text-orange-400">Quality Education</span>
               </motion.h1>
             </div>
 
@@ -396,13 +396,13 @@ export default function HeroSection() {
               whileInView="visible"
               viewport={{ once: true, margin: "0px" }}
               variants={fadeInLeft}
-              className="text-lg md:text-xl text-gray-200 mb-8"
+              className="!text-lg md:!text-xl !text-gray-200 !mb-8"
             >
               Join our prestigious institution and embark on a journey of
               academic excellence and professional growth.
             </motion.p>
 
-            <div className="hidden md:grid md:grid-cols-3 gap-6 pt-4">
+            <div className="!hidden md:!grid md:!grid-cols-3 !gap-6 !pt-4">
               {programs.map((program, index) => (
                 <motion.div
                   key={program.title}
@@ -411,15 +411,15 @@ export default function HeroSection() {
                   viewport={{ once: true, margin: "0px" }}
                   variants={fadeInUp}
                   transition={{ delay: index * 0.2 }}
-                  className="bg-white/10 backdrop-blur-[5px] rounded-xl p-6 border border-white/20 transform transition-all hover:bg-white/20"
+                  className="!bg-white/10 !backdrop-blur-[5px] !rounded-xl !p-6 !border !border-white/20 !transform !transition-all hover:!bg-white/20"
                 >
-                  <div className="w-12 h-12 bg-orange-500/20 rounded-lg flex items-center justify-center mb-4">
+                  <div className="!w-12 !h-12 !bg-orange-500/20 !rounded-lg !flex !items-center !justify-center !mb-4">
                     {program.icon}
                   </div>
-                  <Heading size="sm" className="text-white mb-1" as="h3">
+                  <Heading size="sm" className="!text-white !mb-1" as="h3">
                     {program.title}
                   </Heading>
-                  <p className="text-sm text-blue-100 mb-3">
+                  <p className="!text-sm !text-blue-100 !mb-3">
                     {program.description}
                   </p>
                 </motion.div>
@@ -431,9 +431,9 @@ export default function HeroSection() {
               whileInView="visible"
               viewport={{ once: true, margin: "0px" }}
               variants={fadeIn}
-              className="hidden md:block pt-6"
+              className="!hidden md:!block !pt-6"
             >
-              <div className="flex flex-col md:flex-row md:items-center space-y-4 md:space-y-0 md:space-x-8">
+              <div className="!flex !flex-col md:!flex-row md:!items-center !space-y-4 md:!space-y-0 md:!space-x-8">
                 {features.map((feature, index) => (
                   <motion.div
                     key={feature}
@@ -442,10 +442,10 @@ export default function HeroSection() {
                     viewport={{ once: true, margin: "0px" }}
                     variants={fadeIn}
                     transition={{ delay: index * 0.2 }}
-                    className="flex items-center space-x-2"
+                    className="!flex !items-center !space-x-2"
                   >
-                    <CheckCircle className="h-5 w-5 text-orange-400" />
-                    <span className="text-white">{feature}</span>
+                    <CheckCircle className="!h-5 !w-5 !text-orange-400" />
+                    <span className="!text-white">{feature}</span>
                   </motion.div>
                 ))}
               </div>
@@ -458,23 +458,23 @@ export default function HeroSection() {
             whileInView="visible"
             viewport={{ once: true, margin: "0px" }}
             variants={fadeInRight}
-            className="lg:col-span-5"
+            className="lg:!col-span-5"
           >
-            <div className="bg-white rounded-2xl shadow-xl overflow-hidden w-[90%] max-w-[400px] mx-auto lg:scale-90">
-              <div className="bg-blue-900 py-4 px-6">
-                <Heading size="sm" className="text-white" as="h2">
+            <div className="!bg-white !rounded-2xl !shadow-xl !overflow-hidden !w-[90%] !max-w-[400px] !mx-auto lg:!scale-90">
+              <div className="!bg-blue-900 !py-4 !px-6">
+                <Heading size="sm" className="!text-white" as="h2">
                   Admission Enquiry
                 </Heading>
-                <p className="text-blue-200 text-xs">
+                <p className="!text-blue-200 !text-xs">
                   Fill the form below to get started
                 </p>
               </div>
 
-              <form onSubmit={handleSubmit} className="p-6">
-                <div className="grid gap-4">
+              <form onSubmit={handleSubmit} className="!p-6">
+                <div className="!grid !gap-4">
                   {/* Name Field */}
-                  <div className="space-y-1">
-                    <Label htmlFor="name" className="text-gray-700 text-sm">
+                  <div className="!space-y-1">
+                    <Label htmlFor="name" className="!text-gray-700 !text-sm">
                       Full Name *
                     </Label>
                     <Input
@@ -483,18 +483,18 @@ export default function HeroSection() {
                       value={formData.name}
                       onChange={handleChange}
                       placeholder="Enter your full name"
-                      className={`rounded-lg border-gray-200 h-9 text-gray-900 placeholder:text-gray-400 ${
-                        errors.name ? "border-red-500" : ""
+                      className={`!rounded-lg !border-gray-200 !h-9 !text-gray-900 !placeholder:text-gray-400 ${
+                        errors.name ? "!border-red-500" : ""
                       }`}
                     />
                     {errors.name && (
-                      <p className="text-red-500 text-xs">{errors.name}</p>
+                      <p className="!text-red-500 !text-xs">{errors.name}</p>
                     )}
                   </div>
 
                   {/* Email Field */}
-                  <div className="space-y-1">
-                    <Label htmlFor="email" className="text-gray-700 text-sm">
+                  <div className="!space-y-1">
+                    <Label htmlFor="email" className="!text-gray-700 !text-sm">
                       Email Address *
                     </Label>
                     <Input
@@ -504,18 +504,18 @@ export default function HeroSection() {
                       value={formData.email}
                       onChange={handleChange}
                       placeholder="Enter your email address"
-                      className={`rounded-lg border-gray-200 h-9 text-gray-900 placeholder:text-gray-400 ${
-                        errors.email ? "border-red-500" : ""
+                      className={`!rounded-lg !border-gray-200 !h-9 !text-gray-900 !placeholder:text-gray-400 ${
+                        errors.email ? "!border-red-500" : ""
                       }`}
                     />
                     {errors.email && (
-                      <p className="text-red-500 text-xs">{errors.email}</p>
+                      <p className="!text-red-500 !text-xs">{errors.email}</p>
                     )}
                   </div>
 
                   {/* Phone Field */}
-                  <div className="space-y-1">
-                    <Label htmlFor="phone" className="text-gray-700 text-sm">
+                  <div className="!space-y-1">
+                    <Label htmlFor="phone" className="!text-gray-700 !text-sm">
                       Phone Number *
                     </Label>
                     <Input
@@ -524,17 +524,17 @@ export default function HeroSection() {
                       value={formData.phone}
                       onChange={handleChange}
                       placeholder="Enter your 10-digit phone number"
-                      className={`rounded-lg border-gray-200 h-9 text-gray-900 placeholder:text-gray-400 ${
-                        errors.phone ? "border-red-500" : ""
+                      className={`!rounded-lg !border-gray-200 !h-9 !text-gray-900 !placeholder:text-gray-400 ${
+                        errors.phone ? "!border-red-500" : ""
                       }`}
                     />
                     {errors.phone && (
-                      <p className="text-red-500 text-xs">{errors.phone}</p>
+                      <p className="!text-red-500 !text-xs">{errors.phone}</p>
                     )}
                   </div>
 
                   {/* City Field */}
-                  <div className="space-y-1">
+                  <div className="!space-y-1">
                     <Label htmlFor="city" className="!text-gray-700 !text-sm">
                       Select City *
                     </Label>
@@ -545,18 +545,18 @@ export default function HeroSection() {
                       value={formData.city}
                     >
                       <SelectTrigger
-                        className={`w-full rounded-lg !border-gray-200 !text-gray-900 placeholder:text-gray-400 h-9 !bg-white !hover:bg-white !focus:bg-white ${
+                        className={`!w-full !rounded-lg !border-gray-200 !text-gray-900 !placeholder:text-gray-400 !h-9 !bg-white hover:!bg-white focus:!bg-white ${
                           errors.city ? "!border-red-500" : ""
                         }`}
                       >
                         <SelectValue placeholder="Select your city" />
                       </SelectTrigger>
-                      <SelectContent className="bg-white border rounded-lg shadow-lg">
+                      <SelectContent className="!bg-white !border !rounded-lg !shadow-lg">
                         {cities.map((city) => (
                           <SelectItem
                             key={city}
                             value={city}
-                            className="hover:bg-gray-100 text-gray-900 bg-white focus:bg-white focus:text-gray-900"
+                            className="hover:!bg-gray-100 !text-gray-900 !bg-white focus:!bg-white focus:!text-gray-900"
                           >
                             {city}
                           </SelectItem>
@@ -564,13 +564,13 @@ export default function HeroSection() {
                       </SelectContent>
                     </Select>
                     {errors.city && (
-                      <p className="text-red-500 text-xs">{errors.city}</p>
+                      <p className="!text-red-500 !text-xs">{errors.city}</p>
                     )}
                   </div>
 
                   {/* Stream Field */}
-                  <div className="space-y-1">
-                    <Label htmlFor="stream" className="text-gray-700 text-sm">
+                  <div className="!space-y-1">
+                    <Label htmlFor="stream" className="!text-gray-700 !text-sm">
                       Select Stream *
                     </Label>
                     <Select
@@ -580,18 +580,18 @@ export default function HeroSection() {
                       value={formData.stream}
                     >
                       <SelectTrigger
-                        className={`w-full rounded-lg border-gray-200 text-gray-900 placeholder:text-gray-400 h-9 bg-white hover:bg-white focus:bg-white ${
-                          errors.stream ? "border-red-500" : ""
+                        className={`!w-full !rounded-lg !border-gray-200 !text-gray-900 !placeholder:text-gray-400 !h-9 !bg-white hover:!bg-white focus:!bg-white ${
+                          errors.stream ? "!border-red-500" : ""
                         }`}
                       >
                         <SelectValue placeholder="Select your stream" />
                       </SelectTrigger>
-                      <SelectContent className="bg-white border rounded-lg shadow-lg">
+                      <SelectContent className="!bg-white !border !rounded-lg !shadow-lg">
                         {Object.keys(streamCourses).map((stream) => (
                           <SelectItem
                             key={stream}
                             value={stream}
-                            className="hover:bg-gray-100 text-gray-900 bg-white focus:bg-white focus:text-gray-900"
+                            className="hover:!bg-gray-100 !text-gray-900 !bg-white focus:!bg-white focus:!text-gray-900"
                           >
                             {stream}
                           </SelectItem>
@@ -599,13 +599,13 @@ export default function HeroSection() {
                       </SelectContent>
                     </Select>
                     {errors.stream && (
-                      <p className="text-red-500 text-xs">{errors.stream}</p>
+                      <p className="!text-red-500 !text-xs">{errors.stream}</p>
                     )}
                   </div>
 
                   {/* Course Field */}
-                  <div className="space-y-1">
-                    <Label htmlFor="course" className="text-gray-700 text-sm">
+                  <div className="!space-y-1">
+                    <Label htmlFor="course" className="!text-gray-700 !text-sm">
                       Select Course *
                     </Label>
                     <Select
@@ -616,8 +616,8 @@ export default function HeroSection() {
                       disabled={!formData.stream}
                     >
                       <SelectTrigger
-                        className={`w-full rounded-lg border-gray-200 text-gray-900 placeholder:text-gray-400 h-9 bg-white hover:bg-white focus:bg-white ${
-                          errors.course ? "border-red-500" : ""
+                        className={`!w-full !rounded-lg !border-gray-200 !text-gray-900 !placeholder:text-gray-400 !h-9 !bg-white hover:!bg-white focus:!bg-white ${
+                          errors.course ? "!border-red-500" : ""
                         }`}
                       >
                         <SelectValue
@@ -628,22 +628,22 @@ export default function HeroSection() {
                           }
                         >
                           <span
-                            className="truncate max-w-[200px] block"
+                            className="!truncate !max-w-[200px] !block"
                             title={formData.course}
                           >
                             {formData.course}
                           </span>
                         </SelectValue>
                       </SelectTrigger>
-                      <SelectContent className="bg-white border rounded-lg shadow-lg w-[200px]">
+                      <SelectContent className="!bg-white !border !rounded-lg !shadow-lg !w-[200px]">
                         {courseOptions.map((course) => (
                           <SelectItem
                             key={course}
                             value={course}
-                            className="hover:bg-gray-100 text-gray-900 bg-white focus:bg-white focus:text-gray-900"
+                            className="hover:!bg-gray-100 !text-gray-900 !bg-white focus:!bg-white focus:!text-gray-900"
                           >
                             <span
-                              className="truncate max-w-[180px] block"
+                              className="!truncate !max-w-[180px] !block"
                               title={course}
                             >
                               {course}
@@ -653,29 +653,29 @@ export default function HeroSection() {
                       </SelectContent>
                     </Select>
                     {errors.course && (
-                      <p className="text-red-500 text-xs">{errors.course}</p>
+                      <p className="!text-red-500 !text-xs">{errors.course}</p>
                     )}
                   </div>
 
                   <Button
                     type="submit"
                     disabled={isSubmitting}
-                    className={`w-full !bg-orange-500 hover:!bg-orange-600 text-white rounded-lg py-4 transition-all duration-200 ${
+                    className={`!w-full !bg-orange-500 hover:!bg-orange-600 !text-white !rounded-lg !py-4 !transition-all !duration-200 ${
                       isSubmitting
-                        ? "opacity-50 cursor-not-allowed !bg-gray-400"
+                        ? "!opacity-50 !cursor-not-allowed !bg-gray-400"
                         : ""
                     }`}
                   >
                     {isSubmitting ? (
-                      <div className="flex items-center justify-center">
+                      <div className="!flex !items-center !justify-center">
                         <svg
-                          className="animate-spin -ml-1 mr-3 h-5 w-5 text-white"
+                          className="!animate-spin -!ml-1 !mr-3 !h-5 !w-5 !text-white"
                           xmlns="http://www.w3.org/2000/svg"
                           fill="none"
                           viewBox="0 0 24 24"
                         >
                           <circle
-                            className="opacity-25"
+                            className="!opacity-25"
                             cx="12"
                             cy="12"
                             r="10"
@@ -683,7 +683,7 @@ export default function HeroSection() {
                             strokeWidth="4"
                           ></circle>
                           <path
-                            className="opacity-75"
+                            className="!opacity-75"
                             fill="currentColor"
                             d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4zm2 5.291A7.962 7.962 0 014 12H0c0 3.042 1.135 5.824 3 7.938l3-2.647z"
                           ></path>
@@ -695,7 +695,7 @@ export default function HeroSection() {
                     )}
                   </Button>
 
-                  <p className="text-center text-gray-500 text-xs mt-2">
+                  <p className="!text-center !text-gray-500 !text-xs !mt-2">
                     By submitting this form, you agree to our Terms of Service
                     and Privacy Policy
                   </p>
