@@ -1,172 +1,89 @@
-@import "tailwindcss/preflight";
-@import "tailwindcss/utilities";
+@import "tailwindcss";
 
-@layer base {
+:root {
+  font-family: system-ui, Avenir, Helvetica, Arial, sans-serif;
+  line-height: 1.5;
+  font-weight: 400;
+
+  color-scheme: light dark;
+  color: rgba(255, 255, 255, 0.87);
+  background-color: #242424;
+
+  font-synthesis: none;
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+a {
+  font-weight: 500;
+  color: #646cff;
+  text-decoration: inherit;
+}
+a:hover {
+  color: #535bf2;
+}
+
+button {
+  border-radius: 8px;
+  border: 1px solid transparent;
+  padding: 0.6em 1.2em;
+  font-size: 1em;
+  font-weight: 500;
+  font-family: inherit;
+  background-color: #1a1a1a;
+  cursor: pointer;
+  transition: border-color 0.25s;
+}
+button:hover {
+  border-color: #646cff;
+}
+button:focus,
+button:focus-visible {
+  outline: 4px auto -webkit-focus-ring-color;
+}
+
+@media (prefers-color-scheme: light) {
   :root {
-    --background: 0 0% 100%;
-    --foreground: 222.2 84% 4.9%;
-    --card: 0 0% 100%;
-    --card-foreground: 222.2 84% 4.9%;
-    --popover: 0 0% 100%;
-    --popover-foreground: 222.2 84% 4.9%;
-    --primary: 221.2 83.2% 53.3%;
-    --primary-foreground: 210 40% 98%;
-    --secondary: 210 40% 96.1%;
-    --secondary-foreground: 222.2 47.4% 11.2%;
-    --muted: 210 40% 96.1%;
-    --muted-foreground: 215.4 16.3% 46.9%;
-    --accent: 210 40% 96.1%;
-    --accent-foreground: 222.2 47.4% 11.2%;
-    --destructive: 0 84.2% 60.2%;
-    --destructive-foreground: 210 40% 98%;
-    --border: 214.3 31.8% 91.4%;
-    --input: 214.3 31.8% 91.4%;
-    --ring: 221.2 83.2% 53.3%;
-    --radius: 0.5rem;
+    color: #213547;
+    background-color: #ffffff;
   }
-
-  .dark {
-    --background: 222.2 84% 4.9%;
-    --foreground: 210 40% 98%;
-    --card: 222.2 84% 4.9%;
-    --card-foreground: 210 40% 98%;
-    --popover: 222.2 84% 4.9%;
-    --popover-foreground: 210 40% 98%;
-    --primary: 217.2 91.2% 59.8%;
-    --primary-foreground: 222.2 47.4% 11.2%;
-    --secondary: 217.2 32.6% 17.5%;
-    --secondary-foreground: 210 40% 98%;
-    --muted: 217.2 32.6% 17.5%;
-    --muted-foreground: 215 20.2% 65.1%;
-    --accent: 217.2 32.6% 17.5%;
-    --accent-foreground: 210 40% 98%;
-    --destructive: 0 62.8% 30.6%;
-    --destructive-foreground: 210 40% 98%;
-    --border: 217.2 32.6% 17.5%;
-    --input: 217.2 32.6% 17.5%;
-    --ring: 224.3 76.3% 48%;
+  a:hover {
+    color: #747bff;
+  }
+  button {
+    background-color: #f9f9f9;
   }
 }
 
-@layer utilities {
-  .text-primary-important {
-    @apply text-slate-900;
+/* Marquee Animations */
+@keyframes marquee {
+  0% {
+    transform: translateX(0);
   }
-
-  .bg-primary-important {
-    @apply bg-slate-900;
-  }
-
-  .text-orange-important {
-    @apply text-orange-500;
-  }
-
-  .bg-orange-important {
-    @apply bg-orange-500;
-  }
-
-  .text-white-important {
-    @apply text-white;
-  }
-
-  .bg-white-important {
-    @apply bg-white;
-  }
-
-  .text-gray-important {
-    @apply text-slate-900;
-  }
-
-  .bg-gray-important {
-    @apply bg-slate-100;
-  }
-
-  .border-gray-important {
-    @apply border-slate-200;
+  100% {
+    transform: translateX(-50%);
   }
 }
 
-/* Override shadcn/ui styles */
-[data-theme="light"] {
-  --background: 0 0% 100%;
-  --foreground: 222.2 84% 4.9%;
-  --primary: 221.2 83.2% 53.3%;
-  --primary-foreground: 210 40% 98%;
+.animate-marquee {
+  animation: marquee 30s linear infinite;
+  will-change: transform;
+  animation-timing-function: linear;
+  animation-iteration-count: infinite;
+  animation-fill-mode: forwards;
+  backface-visibility: hidden;
+  transform-style: preserve-3d;
+  -webkit-transform-style: preserve-3d;
+  -webkit-backface-visibility: hidden;
 }
 
-/* Ensure our custom styles take precedence */
-@layer components {
-  .custom-select {
-    @apply bg-white text-slate-900 border-slate-200;
+.animate-marquee:hover {
+  animation-play-state: paused;
+}
+
+@media (max-width: 768px) {
+  .animate-marquee {
+    animation-duration: 30s;
   }
-
-  .custom-button {
-    @apply bg-orange-500 text-white hover:bg-orange-600;
-  }
-
-  .custom-input {
-    @apply bg-white text-slate-900 border-slate-200;
-  }
-}
-
-/* Add important declarations using CSS */
-.text-primary-important,
-.bg-primary-important,
-.text-orange-important,
-.bg-orange-important,
-.text-white-important,
-.bg-white-important,
-.text-gray-important,
-.bg-gray-important,
-.border-gray-important,
-.custom-select,
-.custom-button,
-.custom-input {
-  color: inherit !important;
-  background-color: inherit !important;
-  border-color: inherit !important;
-}
-
-/* Custom styles for form elements */
-.form-select {
-  @apply bg-white text-slate-900 border-slate-200;
-}
-
-.form-select:hover {
-  @apply bg-white;
-}
-
-.form-select:focus {
-  @apply bg-white text-slate-900;
-}
-
-.form-select-option {
-  @apply bg-white text-slate-900;
-}
-
-.form-select-option:hover {
-  @apply bg-slate-100;
-}
-
-.form-select-option:focus {
-  @apply bg-white text-slate-900;
-}
-
-/* Force styles to take precedence */
-[data-theme="light"] .form-select,
-[data-theme="light"] .form-select-option {
-  background-color: white !important;
-  color: rgb(15, 23, 42) !important;
-  border-color: rgb(226, 232, 240) !important;
-}
-
-[data-theme="light"] .form-select:hover,
-[data-theme="light"] .form-select-option:hover {
-  background-color: rgb(241, 245, 249) !important;
-}
-
-[data-theme="light"] .form-select:focus,
-[data-theme="light"] .form-select-option:focus {
-  background-color: white !important;
-  color: rgb(15, 23, 42) !important;
 }

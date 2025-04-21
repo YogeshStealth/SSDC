@@ -545,18 +545,18 @@ export default function HeroSection() {
                       value={formData.city}
                     >
                       <SelectTrigger
-                        className={`form-select w-full rounded-lg h-9 ${
+                        className={`w-full rounded-lg border-gray-200 text-gray-900 placeholder:text-gray-400 h-9 bg-white hover:bg-white focus:bg-white ${
                           errors.city ? "border-red-500" : ""
                         }`}
                       >
                         <SelectValue placeholder="Select your city" />
                       </SelectTrigger>
-                      <SelectContent className="form-select border rounded-lg shadow-lg">
+                      <SelectContent className="bg-white border rounded-lg shadow-lg">
                         {cities.map((city) => (
                           <SelectItem
                             key={city}
                             value={city}
-                            className="form-select-option"
+                            className="hover:bg-gray-100 text-gray-900 bg-white focus:bg-white focus:text-gray-900"
                           >
                             {city}
                           </SelectItem>
@@ -580,18 +580,18 @@ export default function HeroSection() {
                       value={formData.stream}
                     >
                       <SelectTrigger
-                        className={`form-select w-full rounded-lg h-9 ${
+                        className={`w-full rounded-lg border-gray-200 text-gray-900 placeholder:text-gray-400 h-9 bg-white hover:bg-white focus:bg-white ${
                           errors.stream ? "border-red-500" : ""
                         }`}
                       >
                         <SelectValue placeholder="Select your stream" />
                       </SelectTrigger>
-                      <SelectContent className="form-select border rounded-lg shadow-lg">
+                      <SelectContent className="bg-white border rounded-lg shadow-lg">
                         {Object.keys(streamCourses).map((stream) => (
                           <SelectItem
                             key={stream}
                             value={stream}
-                            className="form-select-option"
+                            className="hover:bg-gray-100 text-gray-900 bg-white focus:bg-white focus:text-gray-900"
                           >
                             {stream}
                           </SelectItem>
@@ -616,7 +616,7 @@ export default function HeroSection() {
                       disabled={!formData.stream}
                     >
                       <SelectTrigger
-                        className={`form-select w-full rounded-lg h-9 ${
+                        className={`w-full rounded-lg border-gray-200 text-gray-900 placeholder:text-gray-400 h-9 bg-white hover:bg-white focus:bg-white ${
                           errors.course ? "border-red-500" : ""
                         }`}
                       >
@@ -635,12 +635,12 @@ export default function HeroSection() {
                           </span>
                         </SelectValue>
                       </SelectTrigger>
-                      <SelectContent className="form-select border rounded-lg shadow-lg w-[200px]">
+                      <SelectContent className="bg-white border rounded-lg shadow-lg w-[200px]">
                         {courseOptions.map((course) => (
                           <SelectItem
                             key={course}
                             value={course}
-                            className="form-select-option"
+                            className="hover:bg-gray-100 text-gray-900 bg-white focus:bg-white focus:text-gray-900"
                           >
                             <span
                               className="truncate max-w-[180px] block"
