@@ -391,7 +391,8 @@ export default function HeroSection() {
                 className="!text-3xl md:!text-5xl lg:!text-6xl !font-bold !text-white sm:ml-3 !mb-6 px-6"
               >
                 Develop <span className="!text-orange-400">In-Demand </span>
-                Business skills <br /> with <br />
+                Business skills <br className="md:hidden" /> with{" "}
+                <br className="md:hidden" />
                 <span className="!text-orange-400">
                   &nbsp;Latest Technologies
                 </span>
