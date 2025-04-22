@@ -390,8 +390,9 @@ export default function HeroSection() {
                 variants={fadeInLeft}
                 className="!text-4xl md:!text-5xl lg:!text-6xl !font-bold !text-white sm:ml-3 !mb-6"
               >
-                Shape Your Future with{" "}
-                <span className="!text-orange-400">Quality Education</span>
+                Develop <span className="!text-orange-400">In-Demand </span>
+                Business skills with
+                <span className="!text-orange-400">Latest</span> Technologies
               </motion.h1>
             </div>
 
@@ -402,11 +403,11 @@ export default function HeroSection() {
               variants={fadeInLeft}
               className="!text-lg md:!text-xl !text-gray-200 !mb-8"
             >
-              Pursue our{" "}
+              Pursue our
               <span className="!text-orange-400 font-bold text-xl">
                 INDUSTRY-READY
-              </span>{" "}
-              programs with latest specializations
+              </span>
+              programs with advanced specializations
               <br />
               <span className="!text-orange-400 font-bold text-xl">
                 BBA | B.Sc | BCA | B.Com
