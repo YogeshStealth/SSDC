@@ -78,27 +78,22 @@ export default function ProgramTabs() {
 
   const programContent = {
     management: {
-      title: "BBA Programs",
+      title:
+        "BBA with Specialization (HR / Finance / Marketing / Retail Management)",
       description:
         "Bachelor of Business Administration with specialized tracks to prepare you for leadership roles in various business domains.",
       programs: [
         {
-          title: "Human Resources Management",
+          title: "BBA with Specialization",
           icon: <Users className="h-5 w-5 text-orange-500" />,
           description:
-            "Develop expertise in talent acquisition, employee relations, organizational development, and strategic HR planning.",
+            "Choose from HR, Finance, Marketing, or Retail Management specializations to build expertise in your chosen field.",
         },
         {
-          title: "Finance Management",
+          title: "BBA - Business Analytics",
           icon: <TrendingUp className="h-5 w-5 text-orange-500" />,
           description:
-            "Master financial analysis, investment strategies, corporate finance, and financial planning for banking and investment careers.",
-        },
-        {
-          title: "Marketing Management",
-          icon: <ShoppingBag className="h-5 w-5 text-orange-500" />,
-          description:
-            "Learn brand management, digital marketing, consumer behavior, and marketing analytics for business growth.",
+            "Master data-driven decision making, business intelligence, and analytics tools for modern business environments.",
         },
       ],
     },
@@ -311,7 +306,7 @@ export default function ProgramTabs() {
                 whileInView="visible"
                 viewport={{ once: false, margin: "-100px" }}
                 variants={staggerContainer}
-                className="hidden md:grid md:grid-cols-2 lg:grid-cols-3 gap-6"
+                className="hidden md:grid md:grid-cols-2 gap-6"
               >
                 {programContent[key].programs.map((program, index) => (
                   <motion.div

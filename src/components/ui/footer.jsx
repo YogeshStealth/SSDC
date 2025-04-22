@@ -48,10 +48,12 @@ const Footer = () => {
 
               {/* Address */}
               <div className="!flex !flex-wrap !justify-center !gap-x-12 !gap-y-4 !text-gray-300">
-                <div className="!text-center">Siva Sivani Degree College</div>
+                <div className="!text-center">
+                  Siva Sivani Degree College Hyderabad
+                </div>
                 <div className="!text-center">Survey No. 123, Kompally</div>
                 <div className="!text-center">
-                  Secunderabad, Telangana - 500014
+                  Hyderabad, Telangana - 500014
                 </div>
               </div>
             </div>
@@ -62,8 +64,8 @@ const Footer = () => {
         <div className="!bg-gray-800 !py-4">
           <div className="!max-w-7xl !mx-auto !px-4">
             <p className="!text-gray-300 !text-center !text-sm">
-              © {new Date().getFullYear()} Siva Sivani Degree College. All
-              rights reserved.
+              © {new Date().getFullYear()} Siva Sivani Degree College Hyderabad.
+              All rights reserved.
             </p>
           </div>
         </div>
