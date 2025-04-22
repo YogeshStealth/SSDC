@@ -97,7 +97,10 @@ export default function CircleView() {
   return (
     <div className="!relative !w-full !max-w-3xl !mx-auto lg:!pt-8">
       <div className="!text-center !mb-12">
-        <Heading size="lg" className="!mb-4 !pt-12 md:!pt-4 !text-blue-900">
+        <Heading
+          size="lg"
+          className="!mb-4 !pt-12 md:!pt-4 !text-gray-900 dark:text-gray-200"
+        >
           What Sets <span className="!text-orange-500">SSDCH Apart</span>
         </Heading>
       </div>
@@ -189,11 +192,7 @@ export default function CircleView() {
           {/* Center text */}
           <div className="!absolute !inset-0 !flex !flex-col !items-center !justify-center !pointer-events-none">
             <div className="!text-center">
-              <img
-                src="https://ssdc.ac.in/wp-content/uploads/2023/03/Logo-icon.svg"
-                alt="logo"
-                className="!w-32 !h-32"
-              />
+              <img src="/SSDCH-Logo.png" alt="logo" className="!w-24 !h-32" />
             </div>
           </div>
 

@@ -32,11 +32,18 @@ const Footer = () => {
                 transition={{ duration: 0.5 }}
                 className="!mb-8"
               >
-                <img
-                  src="/ssdcLogo.svg"
-                  alt="Siva Sivani Degree College Logo"
-                  className="!h-12 !w-auto"
-                />
+                <div className="!flex gap-1 !items-center">
+                  <img
+                    src="SSDCH-Logo.png"
+                    alt="Siva Sivani Degree College Logo"
+                    className="!h-8 md:!h-12 !w-auto"
+                  />
+                  <img
+                    src="/ssdcLogo.png"
+                    alt="Siva Sivani Degree College Logo"
+                    className="!h-8 md:!h-12 !w-auto"
+                  />
+                </div>
               </motion.div>
 
               {/* Address */}
