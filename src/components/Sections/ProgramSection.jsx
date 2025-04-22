@@ -83,7 +83,8 @@ export default function ProgramTabs() {
         "Bachelor of Business Administration with specialized tracks to prepare you for leadership roles in various business domains.",
       programs: [
         {
-          title: "BBA with Specialization",
+          title:
+            "BBA with Specialization (HR / Finance / Marketing / Retail Management) ",
           icon: <Users className="h-5 w-5 text-orange-500" />,
           description:
             "Choose from HR, Finance, Marketing, or Retail Management specializations to build expertise in your chosen field.",
@@ -200,7 +201,7 @@ export default function ProgramTabs() {
           whileInView="visible"
           viewport={{ once: false, margin: "-100px" }}
           variants={staggerContainer}
-          className="bg-white dark:bg-gray-800 rounded-lg p-6 shadow-lg"
+          className="bg-white dark:bg-gray-800 rounded-lg p-6 "
         >
           {Object.keys(programContent).map((key) => (
             <motion.div
@@ -212,10 +213,10 @@ export default function ProgramTabs() {
               )}
             >
               <div className="mb-6">
-                <h3 className="text-2xl font-bold text-gray-900 dark:text-gray-100">
+                <h3 className="text-2xl font-bold text-gray-900 dark:text-gray-100 text-center">
                   {programContent[key].title}
                 </h3>
-                <p className="text-gray-600 dark:text-gray-300 mt-2">
+                <p className="text-gray-600 dark:text-gray-300 mt-2 text-center">
                   {programContent[key].description}
                 </p>
               </div>
@@ -305,22 +306,22 @@ export default function ProgramTabs() {
                 whileInView="visible"
                 viewport={{ once: false, margin: "-100px" }}
                 variants={staggerContainer}
-                className="hidden md:grid md:grid-cols-2 gap-6"
+                className="hidden md:grid md:grid-cols-2 md:max-w-4xl md:mx-auto gap-6"
               >
                 {programContent[key].programs.map((program, index) => (
                   <motion.div
                     key={index}
                     variants={fadeInUp}
                     whileHover={{ y: -5 }}
-                    className="bg-gray-100 dark:bg-gray-700 p-6 rounded-lg shadow-md hover:shadow-lg transition-shadow"
+                    className="bg-gray-100 dark:bg-gray-700 p-6 rounded-lg shadow-md hover:shadow-lg transition-shadow w-full"
                   >
-                    <div className="flex items-center gap-3 mb-3">
+                    <div className="flex flex-col items-center gap-3 mb-3">
                       {program.icon}
-                      <h4 className="font-semibold text-lg text-gray-900 dark:text-gray-100">
+                      <h4 className="font-semibold text-lg text-gray-900 dark:text-gray-100 text-center">
                         {program.title}
                       </h4>
                     </div>
-                    <p className="text-gray-600 dark:text-gray-300">
+                    <p className="text-gray-600 dark:text-gray-300 text-center">
                       {program.description}
                     </p>
                   </motion.div>
