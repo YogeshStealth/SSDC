@@ -163,19 +163,6 @@ export default function HeroSection() {
   const [courseOptions, setCourseOptions] = useState([]);
   const [isSubmitting, setIsSubmitting] = useState(false);
 
-  const cities = [
-    "Hyderabad",
-    "Secunderabad",
-    "Warangal",
-    "Nizamabad",
-    "Karimnagar",
-    "Khammam",
-    "Mahbubnagar",
-    "Nalgonda",
-    "Adilabad",
-    "Medak",
-  ];
-
   // Update course options when stream changes
   useEffect(() => {
     if (formData.stream) {
@@ -267,6 +254,23 @@ export default function HeroSection() {
 
     try {
       if (validateForm()) {
+        // Get URL parameters
+        const urlParams = new URLSearchParams(window.location.search);
+        const campaign = urlParams.get("campaign") || "organic";
+        const utmSource = urlParams.get("utm_source") || "direct";
+        const utmMedium = urlParams.get("utm_medium") || "none";
+        const utmTerm = urlParams.get("utm_term") || "";
+        const utmContent = urlParams.get("utm_content") || "";
+
+        const formDataWithTracking = {
+          ...formData,
+          campaign,
+          utm_source: utmSource,
+          utm_medium: utmMedium,
+          utm_term: utmTerm,
+          utm_content: utmContent,
+        };
+
         const response = await fetch(
           "https://stealthlearn.in/SSDC_api/submit_form.php",
           {
@@ -276,7 +280,7 @@ export default function HeroSection() {
             },
             mode: "cors",
             credentials: "omit",
-            body: JSON.stringify(formData),
+            body: JSON.stringify(formDataWithTracking),
           }
         );
 
