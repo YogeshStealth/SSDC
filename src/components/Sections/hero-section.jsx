@@ -18,7 +18,7 @@ import { ChevronRight, CheckCircle, Phone } from "lucide-react";
 
 const streamCourses = {
   Management: [
-    "BBA with specialization - HR/Finance/Marketing/Retail Management",
+    "BBA - HR/Finance/Marketing/Retail Management",
     "BBA Business Analytics",
   ],
   Science: [
@@ -191,8 +191,8 @@ export default function HeroSection() {
   const handleChange = (e) => {
     const { name, value } = e.target;
 
-    // Name validation - only allow letters and spaces
-    if (name === "name") {
+    // Name and City validation - only allow letters and spaces
+    if (name === "name" || name === "city") {
       const isValid = /^[A-Za-z\s]*$/.test(value);
       if (isValid) {
         setFormData((prev) => ({ ...prev, [name]: value }));
@@ -208,8 +208,8 @@ export default function HeroSection() {
         setFormData((prev) => ({ ...prev, [name]: value }));
       }
     }
-    // Email validation
-    else if (name === "email") {
+    // For email, allow any input
+    else {
       setFormData((prev) => ({ ...prev, [name]: value }));
     }
 
@@ -355,12 +355,12 @@ export default function HeroSection() {
             <img
               src="SSDCH-Logo.png"
               alt="Siva Sivani Degree College Logo"
-              className="!h-8 md:!h-12 !w-auto"
+              className="!h-12 md:!h-16 !w-auto"
             />
             <img
               src="/ssdcLogo.png"
               alt="Siva Sivani Degree College Logo"
-              className="!h-8 md:!h-12 !w-auto"
+              className="!h-12 md:!h-16 !w-auto"
             />
           </div>
           <div className="!block">
@@ -372,7 +372,7 @@ export default function HeroSection() {
               className="!inline-flex !items-center !px-4 !py-2 !bg-orange-500 hover:!bg-orange-600 !text-white !rounded-full !transition-all !duration-300 !group"
             >
               <Phone className="!h-4 !w-4 !mr-2 !animate-bounce !text-white" />
-              <span className="!font-medium !text-white">Call Us Now</span>
+              <span className="!font-medium !text-white">Call Us</span>
             </motion.a>
           </div>
         </div>
@@ -402,8 +402,8 @@ export default function HeroSection() {
               variants={fadeInLeft}
               className="!text-lg md:!text-xl !text-gray-200 !mb-8"
             >
-              Join our prestigious institution and embark on a journey of
-              academic excellence and professional growth.
+              Pursue our INDUSTRY-READY programs with latest specializations BBA
+              | B.Sc | BCA| B.Com
             </motion.p>
 
             <div className="!hidden md:!grid md:!grid-cols-3 !gap-6 !pt-4">
@@ -520,7 +520,7 @@ export default function HeroSection() {
                   {/* Phone Field */}
                   <div className="!space-y-1">
                     <Label htmlFor="phone" className="!text-gray-700 !text-sm">
-                      Phone Number *
+                      Mobile Number *
                     </Label>
                     <Input
                       id="phone"
@@ -540,33 +540,18 @@ export default function HeroSection() {
                   {/* City Field */}
                   <div className="!space-y-1">
                     <Label htmlFor="city" className="!text-gray-700 !text-sm">
-                      Select City *
+                      Enter City *
                     </Label>
-                    <Select
-                      onValueChange={(value) =>
-                        handleSelectChange("city", value)
-                      }
+                    <Input
+                      id="city"
+                      name="city"
                       value={formData.city}
-                    >
-                      <SelectTrigger
-                        className={`!w-full !rounded-lg !border-gray-200 !text-gray-900 !placeholder:text-gray-400 !h-9 !bg-white hover:!bg-white focus:!bg-white ${
-                          errors.city ? "!border-red-500" : ""
-                        }`}
-                      >
-                        <SelectValue placeholder="Select your city" />
-                      </SelectTrigger>
-                      <SelectContent className="!bg-white !border !rounded-lg !shadow-lg">
-                        {cities.map((city) => (
-                          <SelectItem
-                            key={city}
-                            value={city}
-                            className="hover:!bg-gray-100 !text-gray-900 !bg-white focus:!bg-white focus:!text-gray-900"
-                          >
-                            {city}
-                          </SelectItem>
-                        ))}
-                      </SelectContent>
-                    </Select>
+                      onChange={handleChange}
+                      placeholder="Enter your city"
+                      className={`!rounded-lg !border-gray-200 !h-9 !text-gray-900 !placeholder:text-gray-400 ${
+                        errors.city ? "!border-red-500" : ""
+                      }`}
+                    />
                     {errors.city && (
                       <p className="!text-red-500 !text-xs">{errors.city}</p>
                     )}
