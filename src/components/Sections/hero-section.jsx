@@ -388,7 +388,7 @@ export default function HeroSection() {
                 whileInView="visible"
                 viewport={{ once: true, margin: "0px" }}
                 variants={fadeInLeft}
-                className="!text-3xl md:!text-5xl lg:!text-6xl !font-bold !text-white sm:ml-3 !mb-6"
+                className="!text-3xl md:!text-5xl lg:!text-6xl !font-bold !text-white sm:ml-3 !mb-6 px-6"
               >
                 Develop <span className="!text-orange-400">In-Demand </span>
                 Business skills with
