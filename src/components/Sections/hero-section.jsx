@@ -392,7 +392,9 @@ export default function HeroSection() {
               >
                 Develop <span className="!text-orange-400">In-Demand </span>
                 Business skills with
-                <span className="!text-orange-400">Latest</span> Technologies
+                <span className="!text-orange-400">
+                  &nbsp;Latest Technologies
+                </span>
               </motion.h1>
             </div>
 
@@ -405,9 +407,9 @@ export default function HeroSection() {
             >
               Pursue our
               <span className="!text-orange-400 font-bold text-xl">
-                INDUSTRY-READY
+                &nbsp;INDUSTRY-READY&nbsp;
               </span>
-              programs with advanced specializations
+              programs with advanced specializations in
               <br />
               <span className="!text-orange-400 font-bold text-xl">
                 BBA | B.Sc | BCA | B.Com
