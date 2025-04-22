@@ -94,8 +94,7 @@ const programs = [
 ];
 
 const features = [
-  "AICTE Approved",
-  "NAAC Accredited",
+  "Affiliated to Osmania University (OU)",
   "100% Placement Assistance",
 ];
 
@@ -352,9 +351,14 @@ export default function HeroSection() {
       <div className="!container !max-w-[1366px] !mx-auto !py-12 !relative !z-10 !overflow-hidden">
         {/* Top bar with logo and tagline */}
         <div className="!flex !justify-between !items-center !mb-16 !px-6 md:!px-0">
-          <div className="!flex !items-center">
+          <div className="!flex gap-1 !items-center">
             <img
-              src="/ssdcLogo.svg"
+              src="SSDCH-Logo.png"
+              alt="Siva Sivani Degree College Logo"
+              className="!h-8 md:!h-12 !w-auto"
+            />
+            <img
+              src="/ssdcLogo.png"
               alt="Siva Sivani Degree College Logo"
               className="!h-8 md:!h-12 !w-auto"
             />
@@ -384,7 +388,7 @@ export default function HeroSection() {
                 whileInView="visible"
                 viewport={{ once: true, margin: "0px" }}
                 variants={fadeInLeft}
-                className="!text-4xl md:!text-5xl lg:!text-6xl !font-bold !text-white !mb-6"
+                className="!text-4xl md:!text-5xl lg:!text-6xl !font-bold !text-white sm:ml-3 !mb-6"
               >
                 Shape Your Future with{" "}
                 <span className="!text-orange-400">Quality Education</span>
