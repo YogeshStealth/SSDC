@@ -402,8 +402,15 @@ export default function HeroSection() {
               variants={fadeInLeft}
               className="!text-lg md:!text-xl !text-gray-200 !mb-8"
             >
-              Pursue our INDUSTRY-READY programs with latest specializations BBA
-              | B.Sc | BCA| B.Com
+              Pursue our{" "}
+              <span className="!text-orange-400 font-bold text-xl">
+                INDUSTRY-READY
+              </span>{" "}
+              programs with latest specializations
+              <br />
+              <span className="!text-orange-400 font-bold text-xl">
+                BBA | B.Sc | BCA | B.Com
+              </span>
             </motion.p>
 
             <div className="!hidden md:!grid md:!grid-cols-3 !gap-6 !pt-4">
