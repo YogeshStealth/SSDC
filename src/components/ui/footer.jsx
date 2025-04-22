@@ -8,7 +8,7 @@ const Footer = () => {
     <>
       {/* Fixed WhatsApp Button */}
       <motion.a
-        href="https://wa.me/+918977728995" // Replace with your WhatsApp number
+        href="https://wa.me/+918977728996" // Replace with your WhatsApp number
         target="_blank"
         rel="noopener noreferrer"
         className="!fixed !bottom-8 !right-8 !z-50 !bg-green-500 !text-white !p-4 !rounded-full !shadow-lg !hover:bg-green-600 !transition-colors"
