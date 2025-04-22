@@ -78,8 +78,7 @@ export default function ProgramTabs() {
 
   const programContent = {
     management: {
-      title:
-        "BBA with Specialization (HR / Finance / Marketing / Retail Management)",
+      title: "BBA Programs",
       description:
         "Bachelor of Business Administration with specialized tracks to prepare you for leadership roles in various business domains.",
       programs: [
