@@ -254,13 +254,42 @@ export default function HeroSection() {
 
     try {
       if (validateForm()) {
-        // Get URL parameters
+        // Get URL parameters with case-insensitive handling
         const urlParams = new URLSearchParams(window.location.search);
-        const campaign = urlParams.get("campaign") || "organic";
-        const utmSource = urlParams.get("utm_source") || "direct";
-        const utmMedium = urlParams.get("utm_medium") || "none";
-        const utmTerm = urlParams.get("utm_term") || "";
-        const utmContent = urlParams.get("utm_content") || "";
+        const campaign =
+          urlParams.get("campaign") ||
+          urlParams.get("Campaign") ||
+          urlParams.get("CAMPAIGN") ||
+          "organic";
+        const utmSource =
+          urlParams.get("utm_source") ||
+          urlParams.get("utm_source") ||
+          urlParams.get("UTM_SOURCE") ||
+          "direct";
+        const utmMedium =
+          urlParams.get("utm_medium") ||
+          urlParams.get("utm_medium") ||
+          urlParams.get("UTM_MEDIUM") ||
+          "none";
+        const utmTerm =
+          urlParams.get("utm_term") ||
+          urlParams.get("utm_term") ||
+          urlParams.get("UTM_TERM") ||
+          "";
+        const utmContent =
+          urlParams.get("utm_content") ||
+          urlParams.get("utm_content") ||
+          urlParams.get("UTM_CONTENT") ||
+          "";
+
+        // Debug log the parameters
+        console.log("Campaign Parameters:", {
+          campaign,
+          utmSource,
+          utmMedium,
+          utmTerm,
+          utmContent,
+        });
 
         const formDataWithTracking = {
           ...formData,
