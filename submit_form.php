@@ -80,11 +80,11 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
             'city' => $data['city'],
             'stream' => $data['stream'],
             'course' => $data['course'],
-            'campaign' => strtolower(trim($data['campaign'] ?? 'organic')),
-            'utm_source' => strtolower(trim($data['utm_source'] ?? 'direct')),
-            'utm_medium' => strtolower(trim($data['utm_medium'] ?? 'none')),
-            'utm_term' => trim($data['utm_term'] ?? ''),
-            'utm_content' => trim($data['utm_content'] ?? '')
+            'campaign' => $data['campaign'] ?? $data['utm_campaign'] ?? 'organic',
+            'utm_source' => $data['utm_source'] ?? 'direct',
+            'utm_medium' => $data['utm_medium'] ?? 'none',
+            'utm_term' => $data['utm_term'] ?? '',
+            'utm_content' => $data['utm_content'] ?? ''
         ];
 
         // Debug: Log final form data

@@ -260,6 +260,9 @@ export default function HeroSection() {
           urlParams.get("campaign") ||
           urlParams.get("Campaign") ||
           urlParams.get("CAMPAIGN") ||
+          urlParams.get("utm_campaign") ||
+          urlParams.get("utm_campaign") ||
+          urlParams.get("UTM_CAMPAIGN") ||
           "organic";
         const utmSource =
           urlParams.get("utm_source") ||
