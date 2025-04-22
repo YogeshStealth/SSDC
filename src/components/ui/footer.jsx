@@ -1,7 +1,7 @@
 "use client";
 
 import { motion } from "framer-motion";
-import { Phone, MapPin } from "lucide-react";
+import { Phone, MapPin, MessageCircle } from "lucide-react";
 
 const Footer = () => {
   return (
@@ -15,7 +15,7 @@ const Footer = () => {
         whileHover={{ scale: 1.1 }}
         whileTap={{ scale: 0.9 }}
       >
-        <Phone className="!w-6 !h-6" />
+        <MessageCircle className="!w-6 !h-6" />
       </motion.a>
 
       {/* Footer */}
