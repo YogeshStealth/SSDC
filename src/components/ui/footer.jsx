@@ -48,12 +48,12 @@ const Footer = () => {
 
               {/* Address */}
               <div className="!flex !flex-wrap !justify-center !gap-x-12 !gap-y-4 !text-gray-300">
-                <div className="!text-center">
-                  Siva Sivani Degree College Hyderabad
-                </div>
-                <div className="!text-center">Survey No. 123, Kompally</div>
-                <div className="!text-center">
-                  Hyderabad, Telangana - 500014
+                <div className="!flex !items-center  !gap-x-2">
+                  <MapPin className="!w-4 !h-4 animate-bounce" />
+                  <span>
+                    Opp. Jaya gardens, Raj Bhavan Road Somajiguda, Hyderabad,
+                    500082, T.S., India
+                  </span>
                 </div>
               </div>
             </div>
