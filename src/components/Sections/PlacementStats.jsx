@@ -9,7 +9,7 @@ const stats = [
     offers: 600,
     companies: 50,
     lpa: 6.5,
-    description: "for 165 Students",
+    description: "",
   },
 ];
 

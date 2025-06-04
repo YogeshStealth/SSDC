@@ -106,7 +106,7 @@ export default function ProgramTabs() {
           title: "B.Sc in Artificial Intelligence and Machine Learning",
           icon: <Code className="h-5 w-5 text-orange-500" />,
           description:
-            "Study neural networks, deep learning, computer vision, natural language processing, and AI ethics.",
+            "Study of AI, ML, Object Oriented with Python, Data Structures and Algorithms and AI Ethics.",
         },
         {
           title: "Bachelor of Computer Applications (BCA)",

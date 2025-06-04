@@ -61,7 +61,7 @@ const LogoSlider = ({ className = "" }) => {
       <div className="!container !mx-auto !px-4">
         <motion.div variants={fadeInUp} className="!text-center !mb-16">
           <Heading size="lg" className="!mb-4">
-            Some of Our <span className="!text-orange-500">Major </span>
+            <span className="!text-orange-500">Our </span>
             Recruiters
           </Heading>
           <p className="!text-lg !text-gray-600 dark:!text-gray-300">
